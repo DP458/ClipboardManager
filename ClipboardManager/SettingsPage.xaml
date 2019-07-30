@@ -1,0 +1,258 @@
+﻿<Page
+    x:Class="ClipboardManager.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClipboardManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    Loaded="Page_Loaded">
+
+    <Page.TopAppBar>
+        <CommandBar Style="{ThemeResource TopAppBarStyle}">
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{ThemeResource TopBarPageLogoStyle}" Text="&#xE115;"/>
+                    <TextBlock Style="{ThemeResource TopBarTextBlockStyle}">
+                        <TextBlock.Inlines>
+                            <Run x:Uid="SettingsPageHeader" Text="Settings"/>
+                        </TextBlock.Inlines>
+                    </TextBlock>
+                </StackPanel>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Page.Content>
+        <Pivot Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Pivot.Items>
+                <PivotItem x:Uid="SettingsPagePivotItemAppearance" Header="Appearance">
+                    <PivotItem.Content>
+                        <ScrollViewer>
+                            <ScrollViewer.Content>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Vertical" Margin="20,10,20,0">
+                                        <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Run x:Uid="SettingsPageComboBoxLanguage" Text="Language"/>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                        <ComboBox x:Name="LanguageSwitcher" Margin="0,10,0,10" Width="180" FontSize="16">
+                                            <ComboBoxItem x:Uid="SettingsPageComboBoxLanguageDefault"/>
+                                        </ComboBox>
+                                        <TextBlock Foreground="Gray" IsTextSelectionEnabled="False" FontSize="16" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Run x:Uid="SettingsPageComboBoxLanguageDescription" 
+                                                         Text="Supported language is available for enabling if it is also available in Windows Settings."/>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <ToggleSwitch x:Name="ThemeSwitcher" Margin="20,20,20,0">
+                                        <ToggleSwitch.Header>
+                                            <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                <TextBlock.Inlines>
+                                                    <Run x:Uid="SettingsPageThemeSwitcher" Text="Dark theme mode"/>
+                                                </TextBlock.Inlines>
+                                            </TextBlock>
+                                        </ToggleSwitch.Header>
+                                    </ToggleSwitch>
+                                    <StackPanel Orientation="Vertical" Margin="20,20,20,0">
+                                        <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Run x:Uid="SettingsPageComboBoxFontSize" Text="Font Size"/>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                        <ComboBox x:Name="FontSizeSwitcher" Margin="0,10,0,10" Width="50" FontSize="16">
+                                            <ComboBoxItem x:Name="FontSizeEight" Content="8"/>
+                                            <ComboBoxItem x:Name="FontSizeNine" Content="9"/>
+                                            <ComboBoxItem x:Name="FontSizeTen" Content="10"/>
+                                            <ComboBoxItem x:Name="FontSizeEleven" Content="11"/>
+                                            <ComboBoxItem x:Name="FontSizeTwelve" Content="12"/>
+                                            <ComboBoxItem x:Name="FontSizeThirteen" Content="13"/>
+                                            <ComboBoxItem x:Name="FontSizeFourteen" Content="14"/>
+                                            <ComboBoxItem x:Name="FontSizeFifteen" Content="15"/>
+                                            <ComboBoxItem x:Name="FontSizeSixteen" Content="16"/>
+                                            <ComboBoxItem x:Name="FontSizeSeventeen" Content="17"/>
+                                            <ComboBoxItem x:Name="FontSizeEighteen" Content="18"/>
+                                            <ComboBoxItem x:Name="FontSizeNineteen" Content="19"/>
+                                            <ComboBoxItem x:Name="FontSizeTwenty" Content="20"/>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Margin="20,20,20,0">
+                                        <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Run x:Uid="SettingsPageTextBlockTextWrapping" Text="Wrap text on"/>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                        <CheckBox x:Name="CheckBoxTextWrapping" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxTextWrapping" Text="Main page"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxTextWrappingTextEdit" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxTextWrappingTextEdit" Text="Text edit page"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxTextWrappingShareTargetPage" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxTextWrappingShareTargetPage" Text="Share page"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer.Content>
+                        </ScrollViewer>
+                    </PivotItem.Content>
+                </PivotItem>
+                <PivotItem x:Uid="SettingsPagePivotItemBehavior" Header="Behavior">
+                    <PivotItem.Content>
+                        <ScrollViewer>
+                            <ScrollViewer.Content>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Vertical" Margin="20,10,20,0">
+                                        <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Run  x:Uid="SettingsPageAskConfirmation" Text="Ask confirmation before"/>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                        <CheckBox x:Name="CheckBoxClearClipboardConfirm" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxClearClipboardConfirm" Text="Clearing of the clipboard"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxClearFavoritesConfirm" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxClearFavoritesConfirm" Text="Clearing of the favorites"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxMultiloadPageConfirmClear" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxMultiloadPageConfirmClear" Text="Clearing of the items on Multiload Page"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Margin="20,20,20,0">
+                                        <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Run x:Uid="SettingsPageNotifications" Text="Show notifications after"/>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                        <CheckBox x:Name="CheckBoxFileSavingNotify" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxFileSavingNotify" Text="File saving"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxSuccessAddContentNotify" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxSuccessAddContentNotify" Text="Adding content into the clipboard"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxShowSuccessSaveFavoritesNotify" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxShowSuccessSaveFavoritesNotify" 
+                                                             Text="Saving of favorite items"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxErrorMessages" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxErrorMessages" Text="Occurring of errors"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxShowSuccessAddToFavoritesNotify" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxShowSuccessAddToFavoritesNotify" 
+                                                             Text="Adding content into the favorites"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <CheckBox x:Name="CheckBoxShowSuccessClearFavoritesNotify" Margin="30,5,0,0">
+                                            <CheckBox.Content>
+                                                <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                    <TextBlock.Inlines>
+                                                        <Run x:Uid="SettingsPageCheckBoxShowSuccessClearFavoritesNotify" 
+                                                             Text="Clearing the favorites"/>
+                                                    </TextBlock.Inlines>
+                                                </TextBlock>
+                                            </CheckBox.Content>
+                                        </CheckBox>
+                                        <TextBlock x:Name="TextBlockWindowsNotify" Margin="0,5,0,0" FontSize="16" IsTextSelectionEnabled="False" TextWrapping="Wrap">
+                                            <TextBlock.Inlines>
+                                                <Hyperlink NavigateUri="ms-settings:notifications">
+                                                    <Run x:Uid="SettingsPageNotifyHyperlinkOpenWindowsSettings" Text="Windows Notification Settings"/>
+                                                </Hyperlink>
+                                            </TextBlock.Inlines>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <ToggleSwitch x:Name="ExitSwitcher" Margin="20,20,20,0">
+                                        <ToggleSwitch.Header>
+                                            <TextBlock IsTextSelectionEnabled="False" FontSize="18" TextWrapping="Wrap">
+                                                <TextBlock.Inlines>
+                                                    <Run x:Uid="SettingsPageExitFromFavoritesPage" 
+                                                             Text="Exit from Favorites page after clearing of favorites"/>
+                                                </TextBlock.Inlines>
+                                            </TextBlock>
+                                        </ToggleSwitch.Header>
+                                    </ToggleSwitch>
+                                </StackPanel>
+                            </ScrollViewer.Content>
+                        </ScrollViewer>
+                    </PivotItem.Content>
+                </PivotItem>
+            </Pivot.Items>
+        </Pivot>
+    </Page.Content>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="ButtonReset" x:Uid="SettingsPageButtonReset" Icon="Repair" Label="Reset"/>
+                <AppBarButton x:Name="ButtonBack" x:Uid="SettingsPageButtonBack" Icon="Back" Label="Back" Click="ButtonBack_Click"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>

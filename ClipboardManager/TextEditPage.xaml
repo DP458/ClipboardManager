@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="ClipboardManager.TextEditPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClipboardManager"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    Loaded="Page_Loaded">
+
+    <Page.TopAppBar>
+        <CommandBar Style="{ThemeResource TopAppBarStyle}">
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{ThemeResource TopBarPageLogoStyle}" Text="&#xE104;"/>
+                    <TextBlock Style="{ThemeResource TopBarTextBlockStyle}">
+                        <TextBlock.Inlines>
+                            <Run x:Uid="TextEditPageHeader" Text="Text editing"/>
+                        </TextBlock.Inlines>
+                    </TextBlock>
+                </StackPanel>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Page.Content>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <ScrollViewer x:Name="Scroller">
+                <ScrollViewer.Content>
+                    <RichEditBox x:Name="RichTextEditor" Padding="12" BorderThickness="0" AcceptsReturn="True" TextWrapping="Wrap" ClipboardCopyFormat="PlainText"
+                             IsSpellCheckEnabled="False" SelectionChanged="RichTextEditor_SelectionChanged"/>
+                </ScrollViewer.Content>
+            </ScrollViewer>
+            <ProgressRing x:Name="Waiter" IsActive="False" Height="100" Width="100"/>
+        </Grid>
+    </Page.Content>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="ButtonAccept" x:Uid="TextEditPageButtonAccept" Icon="Accept" Label="Accept" Click="ButtonAccept_Click"/>
+                <AppBarButton x:Name="ButtonCancel" x:Uid="TextEditPageButtonCancel" Icon="Cancel" Label="Cancel" Click="ButtonCancel_Click"/>
+                <AppBarButton x:Name="ButtonUndo" x:Uid="TextEditPageButtonUndo" Icon="Undo" Label="Undo" Click="ButtonUndo_Click"/>
+                <AppBarButton x:Name="ButtonRedo" x:Uid="TextEditPageButtonRedo" Icon="Redo" Label="Redo" Click="ButtonRedo_Click"/>
+                <AppBarButton x:Name="ButtonDelete" x:Uid="TextEditPageButtonDelete" Icon="Delete" Label="Delete" Click="ButtonDelete_Click"/>
+                <AppBarButton x:Name="ButtonSelectAll" x:Uid="TextEditPageButtonSelectAll" Icon="SelectAll" Label="Select All" Click="ButtonSelectAll_Click"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarToggleButton x:Name="ToggleButtonTextWrapping" x:Uid="TextEditPageToggleButtonTextWrapping" Label="TextWrapping"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>

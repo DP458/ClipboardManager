@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutPageAppDeveloper.Text" xml:space="preserve">
+    <value>Developer</value>
+  </data>
+  <data name="AboutPageAppVersion.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="AboutPageButtonBack.Label" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="AboutPageHeader.Text" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="FavoritesPageButtonBack.Label" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="FavoritesPageButtonClearFavorites.Label" xml:space="preserve">
+    <value>Clear All</value>
+  </data>
+  <data name="FavoritesPageButtonSaveAll.Label" xml:space="preserve">
+    <value>Save All</value>
+  </data>
+  <data name="FavoritesPageEmptyStub" xml:space="preserve">
+    <value>Favourites is empty. You can add data to favorites by tapping the Add Favorite button on the main page.</value>
+  </data>
+  <data name="FavoritesPageFlyoutClearFavoritesButton" xml:space="preserve">
+    <value>Clear all favorites</value>
+  </data>
+  <data name="FavoritesPageFlyoutClearFavoritesMessage" xml:space="preserve">
+    <value>Are you going to clear all your saved favorite items?</value>
+  </data>
+  <data name="FavoritesPageHeader.Text" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="FavoritesPageItemsCounter.Text" xml:space="preserve">
+    <value>Items: </value>
+  </data>
+  <data name="FavoritesPageWindowHeaderImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="FavoritesPageWindowHeaderLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="FavoritesPageWindowHeaderText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="FileSavePickerImage" xml:space="preserve">
+    <value>New image</value>
+  </data>
+  <data name="FileSavePickerText" xml:space="preserve">
+    <value>New document</value>
+  </data>
+  <data name="MainPageButtonAdd.Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="MainPageButtonAddFiles" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="MainPageButtonAddImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="MainPageButtonAddText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="MainPageButtonClear.Label" xml:space="preserve">
+    <value>Clear Clipboard</value>
+  </data>
+  <data name="MainPageButtonClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="MainPageButtonEdit.Label" xml:space="preserve">
+    <value>Edit Content</value>
+  </data>
+  <data name="MainPageButtonFavorite.Label" xml:space="preserve">
+    <value>Add Favorite</value>
+  </data>
+  <data name="MainPageButtonFavorites.Label" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="MainPageButtonInfo" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="MainPageButtonMultiloadingText" xml:space="preserve">
+    <value>Multiloading</value>
+  </data>
+  <data name="MainPageButtonSave.Label" xml:space="preserve">
+    <value>Save Content</value>
+  </data>
+  <data name="MainPageButtonSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MainPageButtonShare.Label" xml:space="preserve">
+    <value>Share Content</value>
+  </data>
+  <data name="MainPageCheckBoxTextWrapping" xml:space="preserve">
+    <value>Text wrapping</value>
+  </data>
+  <data name="MainPageComboBoxItemFiles" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="MainPageComboBoxItemImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="MainPageComboBoxItemLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="MainPageComboBoxItemNothing" xml:space="preserve">
+    <value>Nothing</value>
+  </data>
+  <data name="MainPageComboBoxItemText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="MainPageComboBoxItemUnknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="MainPageEmptyClipboardStub" xml:space="preserve">
+    <value>The clipboard is empty. To load data into the clipboard you can copy it from another app. Also you can use Add button to load image, text, or files from disk.</value>
+  </data>
+  <data name="MainPageFlyoutClearClipboardButton" xml:space="preserve">
+    <value>Clear the clipboard</value>
+  </data>
+  <data name="MainPageFlyoutClearClipboardMessage" xml:space="preserve">
+    <value>Are you going to delete all content of the clipboard?</value>
+  </data>
+  <data name="MainPageSaveFileListError" xml:space="preserve">
+    <value>Failed to save list of files</value>
+  </data>
+  <data name="MainPageSaveFileListErrorDescription" xml:space="preserve">
+    <value>Possibly the list of files can not be saved</value>
+  </data>
+  <data name="MainPageSaveImageError" xml:space="preserve">
+    <value>Failed to save the image</value>
+  </data>
+  <data name="MainPageSaveImageErrorDescription" xml:space="preserve">
+    <value>Possibly the image can not be saved</value>
+  </data>
+  <data name="MainPageSaveLinkError" xml:space="preserve">
+    <value>Failed to save the link</value>
+  </data>
+  <data name="MainPageSaveLinkErrorDescription" xml:space="preserve">
+    <value>Possibly the link can not be saved</value>
+  </data>
+  <data name="MainPageSaveTextError" xml:space="preserve">
+    <value>Failed to save the text</value>
+  </data>
+  <data name="MainPageSaveTextErrorDescription" xml:space="preserve">
+    <value>Possibly the text can not be saved</value>
+  </data>
+  <data name="MainPageShareFilesDescription" xml:space="preserve">
+    <value>Files will be shared with chosen application</value>
+  </data>
+  <data name="MainPageShareFilesError" xml:space="preserve">
+    <value>An error has been occurred while trying to share files</value>
+  </data>
+  <data name="MainPageShareFilesTitle" xml:space="preserve">
+    <value>Files from Clipboard Manager</value>
+  </data>
+  <data name="MainPageShareImageDescription" xml:space="preserve">
+    <value>Image will be shared with chosen application</value>
+  </data>
+  <data name="MainPageShareImageError" xml:space="preserve">
+    <value>An error has been occurred while trying to share image</value>
+  </data>
+  <data name="MainPageShareImageTitle" xml:space="preserve">
+    <value>Image from Clipboard Manager</value>
+  </data>
+  <data name="MainPageShareLinkDescription" xml:space="preserve">
+    <value>Link will be shared with chosen application</value>
+  </data>
+  <data name="MainPageShareLinkError" xml:space="preserve">
+    <value>An error has been occurred while trying to share link</value>
+  </data>
+  <data name="MainPageShareLinkTitle" xml:space="preserve">
+    <value>Link from Clipboard Manager</value>
+  </data>
+  <data name="MainPageShareTextDescription" xml:space="preserve">
+    <value>Text will be shared with chosen application</value>
+  </data>
+  <data name="MainPageShareTextError" xml:space="preserve">
+    <value>An error has been occurred while trying to share text</value>
+  </data>
+  <data name="MainPageShareTextTitle" xml:space="preserve">
+    <value>Text from Clipboard Manager</value>
+  </data>
+  <data name="MainPageShowDataError" xml:space="preserve">
+    <value>Failed to get data from the clipboard</value>
+  </data>
+  <data name="MainPageShowFilesError" xml:space="preserve">
+    <value>Failed to get files from the clipboard</value>
+  </data>
+  <data name="MainPageShowImageError" xml:space="preserve">
+    <value>Failed to get image from the clipboard</value>
+  </data>
+  <data name="MainPageShowLinkError" xml:space="preserve">
+    <value>Failed to get link from the clipboard</value>
+  </data>
+  <data name="MainPageShowTextError" xml:space="preserve">
+    <value>Failed to get text from the clipboard</value>
+  </data>
+  <data name="MainPageUnknownClipboardDataStub" xml:space="preserve">
+    <value>The clipboard has data in unknown data type. Data format has not been recognized by Clipboard Manager.</value>
+  </data>
+  <data name="MultiloadPageButtonAdd.Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="MultiloadPageButtonAddFiles" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="MultiloadPageButtonAddImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="MultiloadPageButtonAddText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="MultiloadPageButtonBack.Label" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="MultiloadPageButtonClear.Label" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="MultiloadPageButtonLoad.Label" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="MultiloadPageEmptyStub" xml:space="preserve">
+    <value>No data available. Press Add button for add the data on this page. And then press Load button for load selected data into the clipboard.</value>
+  </data>
+  <data name="MultiloadPageFlyoutClearButton" xml:space="preserve">
+    <value>Delete all data</value>
+  </data>
+  <data name="MultiloadPageFlyoutClearMessage" xml:space="preserve">
+    <value>Are you sure you want to delete all data items?</value>
+  </data>
+  <data name="MultiloadPageHeader.Text" xml:space="preserve">
+    <value>Multiloading</value>
+  </data>
+  <data name="MultiloadPageItemsCounter.Text" xml:space="preserve">
+    <value>Items: </value>
+  </data>
+  <data name="MultiloadPageSuccessAddContentText" xml:space="preserve">
+    <value>Data has been successfully loaded into the clipboard</value>
+  </data>
+  <data name="MultiloadPageWindowHeaderFiles" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="MultiloadPageWindowHeaderImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="MultiloadPageWindowHeaderText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="NotifyAddImageToFavorites" xml:space="preserve">
+    <value>The image has been successfuly added into the favorites</value>
+  </data>
+  <data name="NotifyAddLinkToFavorites" xml:space="preserve">
+    <value>The link has been successfuly added into the favorites</value>
+  </data>
+  <data name="NotifyAddTextToFavorites" xml:space="preserve">
+    <value>The text has been successfuly added into the favorites</value>
+  </data>
+  <data name="NotifyClearFavorites" xml:space="preserve">
+    <value>All your favorite items have been successfully deleted</value>
+  </data>
+  <data name="NotifyCopyFilesToClipboard" xml:space="preserve">
+    <value>The files have been successfully copied into the clipboard</value>
+  </data>
+  <data name="NotifyCopyImageToClipboard" xml:space="preserve">
+    <value>The image has been successfully copied into the clipboard</value>
+  </data>
+  <data name="NotifyCopyLinkToClipboard" xml:space="preserve">
+    <value>The link has been successfully copied into the clipboard</value>
+  </data>
+  <data name="NotifyCopyTextToClipboard" xml:space="preserve">
+    <value>The text has been successfully copied into the clipboard</value>
+  </data>
+  <data name="NotifyFailedAddImageToFavorites" xml:space="preserve">
+    <value>Failed to add image into the favorites</value>
+  </data>
+  <data name="NotifyFailedAddLinkToFavorites" xml:space="preserve">
+    <value>Failed to add link into the favorites</value>
+  </data>
+  <data name="NotifyFailedAddTextToFavorites" xml:space="preserve">
+    <value>Failed to add text into the favorites</value>
+  </data>
+  <data name="NotifySaveFavorites" xml:space="preserve">
+    <value>Your favorite items have been successfully saved</value>
+  </data>
+  <data name="NotifySaveFiles" xml:space="preserve">
+    <value>The list of files has been successfully saved</value>
+  </data>
+  <data name="NotifySaveImage" xml:space="preserve">
+    <value>The image has been successfully saved</value>
+  </data>
+  <data name="NotifySaveLink" xml:space="preserve">
+    <value>The link has been successfully saved</value>
+  </data>
+  <data name="NotifySaveText" xml:space="preserve">
+    <value>The text has been successfully saved</value>
+  </data>
+  <data name="SettingsPageAskConfirmation.Text" xml:space="preserve">
+    <value>Ask confirmation before</value>
+  </data>
+  <data name="SettingsPageButtonBack.Label" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="SettingsPageButtonReset.Label" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SettingsPageCheckBoxClearClipboardConfirm.Text" xml:space="preserve">
+    <value>Clearing of the clipboard</value>
+  </data>
+  <data name="SettingsPageCheckBoxClearFavoritesConfirm.Text" xml:space="preserve">
+    <value>Clearing of the favorites</value>
+  </data>
+  <data name="SettingsPageCheckBoxErrorMessages.Text" xml:space="preserve">
+    <value>Occurring of errors</value>
+  </data>
+  <data name="SettingsPageCheckBoxFileSavingNotify.Text" xml:space="preserve">
+    <value>File saving</value>
+  </data>
+  <data name="SettingsPageCheckBoxMultiloadPageConfirmClear.Text" xml:space="preserve">
+    <value>Deleting of the items from Multiload Page</value>
+  </data>
+  <data name="SettingsPageCheckBoxShowSuccessAddToFavoritesNotify.Text" xml:space="preserve">
+    <value>Adding content into the favorites</value>
+  </data>
+  <data name="SettingsPageCheckBoxShowSuccessClearFavoritesNotify.Text" xml:space="preserve">
+    <value>Clearing the favorites</value>
+  </data>
+  <data name="SettingsPageCheckBoxShowSuccessSaveFavoritesNotify.Text" xml:space="preserve">
+    <value>Saving of favorite items</value>
+  </data>
+  <data name="SettingsPageCheckBoxSuccessAddContentNotify.Text" xml:space="preserve">
+    <value>Adding content into the clipboard</value>
+  </data>
+  <data name="SettingsPageCheckBoxTextWrapping.Text" xml:space="preserve">
+    <value>Main page</value>
+  </data>
+  <data name="SettingsPageCheckBoxTextWrappingShareTargetPage.Text" xml:space="preserve">
+    <value>Share page</value>
+  </data>
+  <data name="SettingsPageCheckBoxTextWrappingTextEdit.Text" xml:space="preserve">
+    <value>Text edit page</value>
+  </data>
+  <data name="SettingsPageComboBoxFontSize.Text" xml:space="preserve">
+    <value>Font Size</value>
+  </data>
+  <data name="SettingsPageComboBoxLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingsPageComboBoxLanguageDefault.Content" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="SettingsPageComboBoxLanguageDescription.Text" xml:space="preserve">
+    <value>Supported language is available for enabling if it is also available in Windows Settings.</value>
+  </data>
+  <data name="SettingsPageExitFromFavoritesPage.Text" xml:space="preserve">
+    <value>Exit from Favorites page after clearing of favorites</value>
+  </data>
+  <data name="SettingsPageFlyoutResetButton" xml:space="preserve">
+    <value>Reset application</value>
+  </data>
+  <data name="SettingsPageFlyoutResetMessage" xml:space="preserve">
+    <value>Are you going to reset this application in initial state?</value>
+  </data>
+  <data name="SettingsPageHeader.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsPageNotifications.Text" xml:space="preserve">
+    <value>Show notifications after</value>
+  </data>
+  <data name="SettingsPageNotifyDisabledWarning" xml:space="preserve">
+    <value>Receiving notifications from Clipboard Manager is disabled in the Windows Settings. Changing of these parameters has no effect.</value>
+  </data>
+  <data name="SettingsPageNotifyHyperlinkOpenWindowsSettings.Text" xml:space="preserve">
+    <value>Windows Notification Settings</value>
+  </data>
+  <data name="SettingsPagePivotItemAppearance.Header" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="SettingsPagePivotItemBehavior.Header" xml:space="preserve">
+    <value>Behavior</value>
+  </data>
+  <data name="SettingsPageTextBlockTextWrapping.Text" xml:space="preserve">
+    <value>Wrap text on</value>
+  </data>
+  <data name="SettingsPageThemeSwitcher.Text" xml:space="preserve">
+    <value>Dark theme mode</value>
+  </data>
+  <data name="ShareTargetPageButtonCancel.Label" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ShareTargetPageButtonCopy.Label" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ShareTargetPageComboBoxItemFiles" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="ShareTargetPageComboBoxItemImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ShareTargetPageComboBoxItemLink" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="ShareTargetPageComboBoxItemText" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="ShareTargetPageShowFilesError" xml:space="preserve">
+    <value>Failed to get files</value>
+  </data>
+  <data name="ShareTargetPageShowImageError" xml:space="preserve">
+    <value>Failed to get image</value>
+  </data>
+  <data name="ShareTargetPageShowLinkError" xml:space="preserve">
+    <value>Failed to get link</value>
+  </data>
+  <data name="ShareTargetPageShowTextError" xml:space="preserve">
+    <value>Failed to get text</value>
+  </data>
+  <data name="ShareTargetPageToggleButtonTextWrapping.Label" xml:space="preserve">
+    <value>Text wrapping</value>
+  </data>
+  <data name="TextEditPageButtonAccept.Label" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="TextEditPageButtonCancel.Label" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="TextEditPageButtonDelete.Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="TextEditPageButtonRedo.Label" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="TextEditPageButtonSelectAll.Label" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="TextEditPageButtonUndo.Label" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="TextEditPageHeader.Text" xml:space="preserve">
+    <value>Text editing</value>
+  </data>
+  <data name="TextEditPageToggleButtonTextWrapping.Label" xml:space="preserve">
+    <value>Text wrapping</value>
+  </data>
+</root>

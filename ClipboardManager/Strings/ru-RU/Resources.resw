@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutPageAppDeveloper.Text" xml:space="preserve">
+    <value>Разработчик</value>
+    <comment>Developer</comment>
+  </data>
+  <data name="AboutPageAppVersion.Text" xml:space="preserve">
+    <value>Версия</value>
+    <comment>Version</comment>
+  </data>
+  <data name="AboutPageButtonBack.Label" xml:space="preserve">
+    <value>Назад</value>
+    <comment>Back</comment>
+  </data>
+  <data name="AboutPageHeader.Text" xml:space="preserve">
+    <value>Информация</value>
+    <comment>Information</comment>
+  </data>
+  <data name="FavoritesPageButtonBack.Label" xml:space="preserve">
+    <value>Назад</value>
+    <comment>Back</comment>
+  </data>
+  <data name="FavoritesPageButtonClearFavorites.Label" xml:space="preserve">
+    <value>Очистить все</value>
+    <comment>Clear Favorites</comment>
+  </data>
+  <data name="FavoritesPageButtonSaveAll.Label" xml:space="preserve">
+    <value>Сохранить все</value>
+    <comment>Save All</comment>
+  </data>
+  <data name="FavoritesPageEmptyStub" xml:space="preserve">
+    <value>Избранное пусто. Вы можете добавить данные в избранное нажатием кнопки Добавить в избранное на главной странице.</value>
+    <comment>Favourites is empty. You can add data to favorites by tapping the Add Favorite button on the main page.</comment>
+  </data>
+  <data name="FavoritesPageFlyoutClearFavoritesButton" xml:space="preserve">
+    <value>Очистить избранное</value>
+    <comment>Clear all favorites</comment>
+  </data>
+  <data name="FavoritesPageFlyoutClearFavoritesMessage" xml:space="preserve">
+    <value>Вы хотите очистить избранное?</value>
+    <comment>Are you going to clear all your saved favorite items?</comment>
+  </data>
+  <data name="FavoritesPageHeader.Text" xml:space="preserve">
+    <value>Избранное</value>
+    <comment>Favorites</comment>
+  </data>
+  <data name="FavoritesPageItemsCounter.Text" xml:space="preserve">
+    <value>Элементов: </value>
+    <comment>Items: </comment>
+  </data>
+  <data name="FavoritesPageWindowHeaderImage" xml:space="preserve">
+    <value>Изображение</value>
+    <comment>Image</comment>
+  </data>
+  <data name="FavoritesPageWindowHeaderLink" xml:space="preserve">
+    <value>Ссылка</value>
+    <comment>Link</comment>
+  </data>
+  <data name="FavoritesPageWindowHeaderText" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="FileSavePickerImage" xml:space="preserve">
+    <value>Новое изображение</value>
+    <comment>New image</comment>
+  </data>
+  <data name="FileSavePickerText" xml:space="preserve">
+    <value>Новый документ</value>
+    <comment>New document</comment>
+  </data>
+  <data name="MainPageButtonAdd.Label" xml:space="preserve">
+    <value>Добавить</value>
+    <comment>Add</comment>
+  </data>
+  <data name="MainPageButtonAddFiles" xml:space="preserve">
+    <value>Файлы</value>
+    <comment>Files</comment>
+  </data>
+  <data name="MainPageButtonAddImage" xml:space="preserve">
+    <value>Изображение</value>
+    <comment>Image</comment>
+  </data>
+  <data name="MainPageButtonAddText" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="MainPageButtonClear.Label" xml:space="preserve">
+    <value>Очистить</value>
+    <comment>Clear Clipboard</comment>
+  </data>
+  <data name="MainPageButtonClose" xml:space="preserve">
+    <value>Закрыть</value>
+    <comment>Close</comment>
+  </data>
+  <data name="MainPageButtonEdit.Label" xml:space="preserve">
+    <value>Изменить</value>
+    <comment>Edit Content</comment>
+  </data>
+  <data name="MainPageButtonFavorite.Label" xml:space="preserve">
+    <value>Добавить в избранное</value>
+    <comment>Add Favorite</comment>
+  </data>
+  <data name="MainPageButtonFavorites.Label" xml:space="preserve">
+    <value>Избранное</value>
+    <comment>Favorites</comment>
+  </data>
+  <data name="MainPageButtonInfo" xml:space="preserve">
+    <value>Информация</value>
+    <comment>Information</comment>
+  </data>
+  <data name="MainPageButtonMultiloadingText" xml:space="preserve">
+    <value>Мультизагрузка</value>
+    <comment>Multiloading</comment>
+  </data>
+  <data name="MainPageButtonSave.Label" xml:space="preserve">
+    <value>Сохранить</value>
+    <comment>Save Content</comment>
+  </data>
+  <data name="MainPageButtonSettings" xml:space="preserve">
+    <value>Параметры</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="MainPageButtonShare.Label" xml:space="preserve">
+    <value>Поделиться</value>
+    <comment>Share</comment>
+  </data>
+  <data name="MainPageCheckBoxTextWrapping" xml:space="preserve">
+    <value>Перенос текста</value>
+    <comment>Text wrapping</comment>
+  </data>
+  <data name="MainPageComboBoxItemFiles" xml:space="preserve">
+    <value>Файлы</value>
+    <comment>Files</comment>
+  </data>
+  <data name="MainPageComboBoxItemImage" xml:space="preserve">
+    <value>Изображение</value>
+    <comment>Image</comment>
+  </data>
+  <data name="MainPageComboBoxItemLink" xml:space="preserve">
+    <value>Ссылка</value>
+    <comment>Link</comment>
+  </data>
+  <data name="MainPageComboBoxItemNothing" xml:space="preserve">
+    <value>Ничего</value>
+    <comment>Nothing</comment>
+  </data>
+  <data name="MainPageComboBoxItemText" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="MainPageComboBoxItemUnknown" xml:space="preserve">
+    <value>Неизвестно</value>
+    <comment>Unknown</comment>
+  </data>
+  <data name="MainPageEmptyClipboardStub" xml:space="preserve">
+    <value>Буфер обмена пуст. Для загрузки данных в буфер обмена вы можете скопировать их из другого приложения. Также вы можете использовать кнопку Добавить, чтобы загрузить с диска изображение, текст или файлы.</value>
+    <comment>The clipboard is empty. To load data into the clipboard you can copy it from another app. Also you can use Add button to load image, text, or files from disk.</comment>
+  </data>
+  <data name="MainPageFlyoutClearClipboardButton" xml:space="preserve">
+    <value>Очистить буфер обмена</value>
+    <comment>Clear the clipboard</comment>
+  </data>
+  <data name="MainPageFlyoutClearClipboardMessage" xml:space="preserve">
+    <value>Вы хотите удалить все содержимое буфера обмена?</value>
+    <comment>Are you going to delete all content of the clipboard?</comment>
+  </data>
+  <data name="MainPageSaveFileListError" xml:space="preserve">
+    <value>Не удалось сохранить список файлов</value>
+    <comment>Failed to save list of files</comment>
+  </data>
+  <data name="MainPageSaveFileListErrorDescription" xml:space="preserve">
+    <value>Возможно список файлов не может быть сохранен</value>
+    <comment>Possibly the list of files can not be saved</comment>
+  </data>
+  <data name="MainPageSaveImageError" xml:space="preserve">
+    <value>Не удалось сохранить изображение</value>
+    <comment>Failed to save the image</comment>
+  </data>
+  <data name="MainPageSaveImageErrorDescription" xml:space="preserve">
+    <value>Возможно изображение не может быть сохранено</value>
+    <comment>Possibly the image can not be saved</comment>
+  </data>
+  <data name="MainPageSaveLinkError" xml:space="preserve">
+    <value>Не удалось сохранить ссылку</value>
+    <comment>Failed to save the link</comment>
+  </data>
+  <data name="MainPageSaveLinkErrorDescription" xml:space="preserve">
+    <value>Возможно ссылка не может быть сохранена</value>
+    <comment>Possibly the link can not be saved</comment>
+  </data>
+  <data name="MainPageSaveTextError" xml:space="preserve">
+    <value>Не удалось сохранить текст</value>
+    <comment>Failed to save the text</comment>
+  </data>
+  <data name="MainPageSaveTextErrorDescription" xml:space="preserve">
+    <value>Возможно текст не может быть сохранен</value>
+    <comment>Possibly the text can not be saved</comment>
+  </data>
+  <data name="MainPageShareFilesDescription" xml:space="preserve">
+    <value>Файлы будут переданы выбранному приложению</value>
+    <comment>Files will be shared with chosen application</comment>
+  </data>
+  <data name="MainPageShareFilesError" xml:space="preserve">
+    <value>Произошла ошибка при попытке предоставить доступ к файлам</value>
+    <comment>An error has been occurred while trying to share files</comment>
+  </data>
+  <data name="MainPageShareFilesTitle" xml:space="preserve">
+    <value>Файлы из Clipboard Manager</value>
+    <comment>Files from Clipboard Manager</comment>
+  </data>
+  <data name="MainPageShareImageDescription" xml:space="preserve">
+    <value>Изображение будет передано выбранному приложению</value>
+    <comment>Image will be shared with chosen application</comment>
+  </data>
+  <data name="MainPageShareImageError" xml:space="preserve">
+    <value>Произошла ошибка при попытке предоставить доступ к изображению</value>
+    <comment>An error has been occurred while trying to share image</comment>
+  </data>
+  <data name="MainPageShareImageTitle" xml:space="preserve">
+    <value>Изображение из Clipboard Manager</value>
+    <comment>Image from Clipboard Manager</comment>
+  </data>
+  <data name="MainPageShareLinkDescription" xml:space="preserve">
+    <value>Ссылка будет передана выбранному приложению</value>
+    <comment>Link will be shared with chosen application</comment>
+  </data>
+  <data name="MainPageShareLinkError" xml:space="preserve">
+    <value>Произошла ошибка при попытке предоставить доступ к ссылке</value>
+    <comment>An error has been occurred while trying to share link</comment>
+  </data>
+  <data name="MainPageShareLinkTitle" xml:space="preserve">
+    <value>Ссылка из Clipboard Manager</value>
+    <comment>Link from Clipboard Manager</comment>
+  </data>
+  <data name="MainPageShareTextDescription" xml:space="preserve">
+    <value>Текст будет передан выбранному приложению</value>
+    <comment>Text will be shared with chosen application</comment>
+  </data>
+  <data name="MainPageShareTextError" xml:space="preserve">
+    <value>Произошла ошибка при попытке предоставить доступ к тексту</value>
+    <comment>An error has been occurred while trying to share text</comment>
+  </data>
+  <data name="MainPageShareTextTitle" xml:space="preserve">
+    <value>Текст из Clipboard Manager</value>
+    <comment>Text from Clipboard Manager</comment>
+  </data>
+  <data name="MainPageShowDataError" xml:space="preserve">
+    <value>Не удалось получить данные из буфера обмена</value>
+    <comment>Failed to get data from the clipboard</comment>
+  </data>
+  <data name="MainPageShowFilesError" xml:space="preserve">
+    <value>Не удалось получить файлы из буфера обмена</value>
+    <comment>Failed to get files from the clipboard</comment>
+  </data>
+  <data name="MainPageShowImageError" xml:space="preserve">
+    <value>Не удалось получить изображение из буфера обмена</value>
+    <comment>Failed to get image from the clipboard</comment>
+  </data>
+  <data name="MainPageShowLinkError" xml:space="preserve">
+    <value>Не удалось получить ссылку из буфера обмена</value>
+    <comment>Failed to get link from the clipboard</comment>
+  </data>
+  <data name="MainPageShowTextError" xml:space="preserve">
+    <value>Не удалось получить текст из буфера обмена</value>
+    <comment>Failed to get text from the clipboard</comment>
+  </data>
+  <data name="MainPageUnknownClipboardDataStub" xml:space="preserve">
+    <value>Буфер обмена содержит данные неизвестного формата. Clipboard Manager не смог распознать формат данных.</value>
+    <comment>The clipboard has data in unknown data type. Data format has not been recognized by Clipboard Manager.</comment>
+  </data>
+  <data name="MultiloadPageButtonAdd.Label" xml:space="preserve">
+    <value>Добавить</value>
+    <comment>Add</comment>
+  </data>
+  <data name="MultiloadPageButtonAddFiles" xml:space="preserve">
+    <value>Файлы</value>
+    <comment>Files</comment>
+  </data>
+  <data name="MultiloadPageButtonAddImage" xml:space="preserve">
+    <value>Изображение</value>
+    <comment>Image</comment>
+  </data>
+  <data name="MultiloadPageButtonAddText" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="MultiloadPageButtonBack.Label" xml:space="preserve">
+    <value>Назад</value>
+    <comment>Back</comment>
+  </data>
+  <data name="MultiloadPageButtonClear.Label" xml:space="preserve">
+    <value>Очистить</value>
+    <comment>Clear</comment>
+  </data>
+  <data name="MultiloadPageButtonLoad.Label" xml:space="preserve">
+    <value>Загрузить</value>
+    <comment>Load</comment>
+  </data>
+  <data name="MultiloadPageEmptyStub" xml:space="preserve">
+    <value>Данные отсутствуют. Нажмите кнопку Добавить для добавления данных. Затем нажмите кнопку загрузить для загрузки выбранных данных в буфер обмена.</value>
+    <comment>No data available. Press Add button for add the data on this page. And then press Load button for load selected data into the clipboard.</comment>
+  </data>
+  <data name="MultiloadPageFlyoutClearButton" xml:space="preserve">
+    <value>Удалить все данные</value>
+    <comment>Delete all data</comment>
+  </data>
+  <data name="MultiloadPageFlyoutClearMessage" xml:space="preserve">
+    <value>Вы хотите удалить все данные?</value>
+    <comment>Are you sure you want to delete all data items?</comment>
+  </data>
+  <data name="MultiloadPageHeader.Text" xml:space="preserve">
+    <value>Мультизагрузка</value>
+    <comment>Multiloading</comment>
+  </data>
+  <data name="MultiloadPageItemsCounter.Text" xml:space="preserve">
+    <value>Элементов: </value>
+    <comment>Items: </comment>
+  </data>
+  <data name="MultiloadPageSuccessAddContentText" xml:space="preserve">
+    <value>Данные успешно загружены в буфер обмена</value>
+    <comment>Data has been successfully loaded into the clipboard</comment>
+  </data>
+  <data name="MultiloadPageWindowHeaderFiles" xml:space="preserve">
+    <value>Файлы</value>
+    <comment>Files</comment>
+  </data>
+  <data name="MultiloadPageWindowHeaderImage" xml:space="preserve">
+    <value>Изображение</value>
+    <comment>Image</comment>
+  </data>
+  <data name="MultiloadPageWindowHeaderText" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="NotifyAddImageToFavorites" xml:space="preserve">
+    <value>Изображение успешно добавлено в избранное</value>
+    <comment>The image has been successfuly added into the favorites</comment>
+  </data>
+  <data name="NotifyAddLinkToFavorites" xml:space="preserve">
+    <value>Ссылка успешно добавлена в избранное</value>
+    <comment>The link has been successfuly added into the favorites</comment>
+  </data>
+  <data name="NotifyAddTextToFavorites" xml:space="preserve">
+    <value>Текст успешно добавлен в избранное</value>
+    <comment>The text has been successfuly added into the favorites</comment>
+  </data>
+  <data name="NotifyClearFavorites" xml:space="preserve">
+    <value>Избранное было успешно очищено</value>
+    <comment>All your favorite items have been successfully deleted</comment>
+  </data>
+  <data name="NotifyCopyFilesToClipboard" xml:space="preserve">
+    <value>Файлы были успешно скопированы в буфер обмена</value>
+    <comment>The files have been successfully copied into the clipboard</comment>
+  </data>
+  <data name="NotifyCopyImageToClipboard" xml:space="preserve">
+    <value>Изображение успешно скопировано в буфер обмена</value>
+    <comment>The image has been successfully copied into the clipboard</comment>
+  </data>
+  <data name="NotifyCopyLinkToClipboard" xml:space="preserve">
+    <value>Ссылка успешно скопирована в буфер обмена</value>
+    <comment>The link has been successfully copied into the clipboard</comment>
+  </data>
+  <data name="NotifyCopyTextToClipboard" xml:space="preserve">
+    <value>Текст успешно скопирован в буфер обмена</value>
+    <comment>The text has been successfully copied into the clipboard</comment>
+  </data>
+  <data name="NotifyFailedAddImageToFavorites" xml:space="preserve">
+    <value>Не удалось добавить изображение в избранное</value>
+    <comment>Failed to add image into the favorites</comment>
+  </data>
+  <data name="NotifyFailedAddLinkToFavorites" xml:space="preserve">
+    <value>Не удалось добавить ссылку в избранное</value>
+    <comment>Failed to add link into the favorites</comment>
+  </data>
+  <data name="NotifyFailedAddTextToFavorites" xml:space="preserve">
+    <value>Не удалось добавить текст в избранное</value>
+    <comment>Failed to add text into the favorites</comment>
+  </data>
+  <data name="NotifySaveFavorites" xml:space="preserve">
+    <value>Содержимое избранного было успешно сохранено</value>
+    <comment>Your favorite items have been successfully saved</comment>
+  </data>
+  <data name="NotifySaveFiles" xml:space="preserve">
+    <value>Список файлов успешно сохранен</value>
+    <comment>The list of files has been successfully saved</comment>
+  </data>
+  <data name="NotifySaveImage" xml:space="preserve">
+    <value>Изображение успешно сохранено</value>
+    <comment>The image has been successfully saved</comment>
+  </data>
+  <data name="NotifySaveLink" xml:space="preserve">
+    <value>Ссылка успешно сохранена</value>
+    <comment>The link has been successfully saved</comment>
+  </data>
+  <data name="NotifySaveText" xml:space="preserve">
+    <value>Текст успешно сохранен</value>
+    <comment>The text has been successfully saved</comment>
+  </data>
+  <data name="SettingsPageAskConfirmation.Text" xml:space="preserve">
+    <value>Спрашивать подтверждение перед</value>
+    <comment>Ask confirmation before</comment>
+  </data>
+  <data name="SettingsPageButtonBack.Label" xml:space="preserve">
+    <value>Назад</value>
+    <comment>Back</comment>
+  </data>
+  <data name="SettingsPageButtonReset.Label" xml:space="preserve">
+    <value>Сбросить</value>
+    <comment>Reset</comment>
+  </data>
+  <data name="SettingsPageCheckBoxClearClipboardConfirm.Text" xml:space="preserve">
+    <value>Очисткой буфера обмена</value>
+    <comment>Clearing of the clipboard</comment>
+  </data>
+  <data name="SettingsPageCheckBoxClearFavoritesConfirm.Text" xml:space="preserve">
+    <value>Очисткой избранного</value>
+    <comment>Clearing of the favorites</comment>
+  </data>
+  <data name="SettingsPageCheckBoxErrorMessages.Text" xml:space="preserve">
+    <value>Возникновения ошибок</value>
+    <comment>Occurring of errors</comment>
+  </data>
+  <data name="SettingsPageCheckBoxFileSavingNotify.Text" xml:space="preserve">
+    <value>Сохранения файла</value>
+    <comment>File saving</comment>
+  </data>
+  <data name="SettingsPageCheckBoxMultiloadPageConfirmClear.Text" xml:space="preserve">
+    <value>Удалением элементов со страницы мультизагрузки</value>
+    <comment>Deleting of the items from Multiload Page</comment>
+  </data>
+  <data name="SettingsPageCheckBoxShowSuccessAddToFavoritesNotify.Text" xml:space="preserve">
+    <value>Добавления данных в избранное</value>
+    <comment>Adding content into the favorites</comment>
+  </data>
+  <data name="SettingsPageCheckBoxShowSuccessClearFavoritesNotify.Text" xml:space="preserve">
+    <value>Очистки Избранного</value>
+    <comment>Clearing the favorites</comment>
+  </data>
+  <data name="SettingsPageCheckBoxShowSuccessSaveFavoritesNotify.Text" xml:space="preserve">
+    <value>Сохранения избранного</value>
+    <comment>Saving of favorite items</comment>
+  </data>
+  <data name="SettingsPageCheckBoxSuccessAddContentNotify.Text" xml:space="preserve">
+    <value>Добавления данных в буфер обмена</value>
+    <comment>Adding content into the clipboard</comment>
+  </data>
+  <data name="SettingsPageCheckBoxTextWrapping.Text" xml:space="preserve">
+    <value>Главной странице</value>
+    <comment>Main page</comment>
+  </data>
+  <data name="SettingsPageCheckBoxTextWrappingShareTargetPage.Text" xml:space="preserve">
+    <value>Странице Поделиться</value>
+    <comment>Share page</comment>
+  </data>
+  <data name="SettingsPageCheckBoxTextWrappingTextEdit.Text" xml:space="preserve">
+    <value>Странице редактирования текста</value>
+    <comment>Text edit page</comment>
+  </data>
+  <data name="SettingsPageComboBoxFontSize.Text" xml:space="preserve">
+    <value>Размер шрифта</value>
+    <comment>Font Size</comment>
+  </data>
+  <data name="SettingsPageComboBoxLanguage.Text" xml:space="preserve">
+    <value>Язык</value>
+    <comment>Language</comment>
+  </data>
+  <data name="SettingsPageComboBoxLanguageDefault.Content" xml:space="preserve">
+    <value>По умолчанию</value>
+    <comment>Default</comment>
+  </data>
+  <data name="SettingsPageComboBoxLanguageDescription.Text" xml:space="preserve">
+    <value>Поддерживаемый язык доступен для выбора, если он также доступен в параметрах Windows.</value>
+    <comment>Supported language is available for enabling if it is also available in Windows Settings</comment>
+  </data>
+  <data name="SettingsPageExitFromFavoritesPage.Text" xml:space="preserve">
+    <value>Выходить со страницы Избранное после очистки избранного</value>
+    <comment>Exit from Favorites page after clearing of favorites</comment>
+  </data>
+  <data name="SettingsPageFlyoutResetButton" xml:space="preserve">
+    <value>Сбросить приложение</value>
+    <comment>Reset application</comment>
+  </data>
+  <data name="SettingsPageFlyoutResetMessage" xml:space="preserve">
+    <value>Вы хотите сбросить приложение до начального состояния?</value>
+    <comment>Are you going to reset this application in initial state?</comment>
+  </data>
+  <data name="SettingsPageHeader.Text" xml:space="preserve">
+    <value>Параметры</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="SettingsPageNotifications.Text" xml:space="preserve">
+    <value>Показывать уведомление после</value>
+    <comment>Show notifications after</comment>
+  </data>
+  <data name="SettingsPageNotifyDisabledWarning" xml:space="preserve">
+    <value>Получение уведомлений от Clipboard Manager выключено в Параметрах Windows. Изменение этих параметров не будет иметь ни какого эффекта.</value>
+    <comment>Receiving notifications from Clipboard Manager is disabled in the Windows Settings. Changing of these parameters has no effect.</comment>
+  </data>
+  <data name="SettingsPageNotifyHyperlinkOpenWindowsSettings.Text" xml:space="preserve">
+    <value>Настройки уведомлений Windows</value>
+    <comment>Open the Windows Settings</comment>
+  </data>
+  <data name="SettingsPagePivotItemAppearance.Header" xml:space="preserve">
+    <value>Внешний вид</value>
+    <comment>Appearance</comment>
+  </data>
+  <data name="SettingsPagePivotItemBehavior.Header" xml:space="preserve">
+    <value>Поведение</value>
+    <comment>Behavior</comment>
+  </data>
+  <data name="SettingsPageTextBlockTextWrapping.Text" xml:space="preserve">
+    <value>Переносить текст на</value>
+    <comment>Wrap text on</comment>
+  </data>
+  <data name="SettingsPageThemeSwitcher.Text" xml:space="preserve">
+    <value>Темный режим</value>
+    <comment>Dark theme mode</comment>
+  </data>
+  <data name="ShareTargetPageButtonCancel.Label" xml:space="preserve">
+    <value>Отмена</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="ShareTargetPageButtonCopy.Label" xml:space="preserve">
+    <value>Копировать</value>
+    <comment>Copy</comment>
+  </data>
+  <data name="ShareTargetPageComboBoxItemFiles" xml:space="preserve">
+    <value>Файлы</value>
+    <comment>Files</comment>
+  </data>
+  <data name="ShareTargetPageComboBoxItemImage" xml:space="preserve">
+    <value>Изображение</value>
+    <comment>Image</comment>
+  </data>
+  <data name="ShareTargetPageComboBoxItemLink" xml:space="preserve">
+    <value>Ссылка</value>
+    <comment>Link</comment>
+  </data>
+  <data name="ShareTargetPageComboBoxItemText" xml:space="preserve">
+    <value>Текст</value>
+    <comment>Text</comment>
+  </data>
+  <data name="ShareTargetPageShowFilesError" xml:space="preserve">
+    <value>Не удалось получить файлы</value>
+    <comment>Failed to get files</comment>
+  </data>
+  <data name="ShareTargetPageShowImageError" xml:space="preserve">
+    <value>Не удалось получить изображение</value>
+    <comment>Failed to get image</comment>
+  </data>
+  <data name="ShareTargetPageShowLinkError" xml:space="preserve">
+    <value>Не удалось получить ссылку</value>
+    <comment>Failed to get link</comment>
+  </data>
+  <data name="ShareTargetPageShowTextError" xml:space="preserve">
+    <value>Не удалось получить текст</value>
+    <comment>Failed to get text</comment>
+  </data>
+  <data name="ShareTargetPageToggleButtonTextWrapping.Label" xml:space="preserve">
+    <value>Перенос текста</value>
+    <comment>Text wrapping</comment>
+  </data>
+  <data name="TextEditPageButtonAccept.Label" xml:space="preserve">
+    <value>Применить</value>
+    <comment>Accept</comment>
+  </data>
+  <data name="TextEditPageButtonCancel.Label" xml:space="preserve">
+    <value>Отмена</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="TextEditPageButtonDelete.Label" xml:space="preserve">
+    <value>Удалить</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="TextEditPageButtonRedo.Label" xml:space="preserve">
+    <value>Вернуть</value>
+    <comment>Redo</comment>
+  </data>
+  <data name="TextEditPageButtonSelectAll.Label" xml:space="preserve">
+    <value>Выделить Все</value>
+    <comment>Select All</comment>
+  </data>
+  <data name="TextEditPageButtonUndo.Label" xml:space="preserve">
+    <value>Отменить</value>
+    <comment>Undo</comment>
+  </data>
+  <data name="TextEditPageHeader.Text" xml:space="preserve">
+    <value>Редактирование текста</value>
+    <comment>Text editing</comment>
+  </data>
+  <data name="TextEditPageToggleButtonTextWrapping.Label" xml:space="preserve">
+    <value>Перенос текста</value>
+    <comment>Text wrapping</comment>
+  </data>
+</root>

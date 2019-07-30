@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>9e827501-793a-45b0-9462-d884798711df</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{b552cfad-b9cc-4b06-93db-17ee03c8899f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTools">
+      <UniqueIdentifier>{7162c077-a0c5-45a6-a44e-4eb115252fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{0f90a8cf-99de-4c2c-8418-ca6f5794e46f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MainPage">
+      <UniqueIdentifier>{07c5a3b6-9b14-4470-8273-07c8731b3606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MainPage\MainPage.xaml.Open">
+      <UniqueIdentifier>{769aa146-bca6-4e1d-b696-c29125bb9a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MainPage\MainPage.xaml.Save">
+      <UniqueIdentifier>{3fecd129-a96a-49da-8ad6-c76aa0cf202d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{3e77622c-8310-4f72-a73d-94bc274805b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\en-us">
+      <UniqueIdentifier>{85a3ce04-4968-4e41-8a49-654b6a256b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\ru-ru">
+      <UniqueIdentifier>{6840132e-8a3d-4d1a-b9c1-ae658a397cf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\en-GB">
+      <UniqueIdentifier>{1ed81aef-20a1-40b4-bed3-7983c2f05039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MainPage\MainPage.xaml.Share">
+      <UniqueIdentifier>{0ddfa12f-ec9b-451b-a5aa-1cb0cd48069f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MultiloadPage">
+      <UniqueIdentifier>{7449a1ae-0ce6-4033-a0bc-f8f1a278ddbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MultiloadPage\MultiloadPage.xaml.Open">
+      <UniqueIdentifier>{73c3579a-204c-4d4d-a8b2-9c4798f3cff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\FavoritesPage">
+      <UniqueIdentifier>{309f09c0-407f-4439-8b16-d99fa913e4e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\FavoritesPage\FavoritesPage.xaml.History">
+      <UniqueIdentifier>{8e0abbf0-641b-4bda-8d06-30a4d931fb97}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="AboutPage.xaml.cpp" />
+    <ClCompile Include="ShareTargetPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsPage.xaml.cpp" />
+    <ClCompile Include="TextEditPage.xaml.cpp" />
+    <ClCompile Include="CommonTools.cpp">
+      <Filter>CommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="Clipboard.cpp">
+      <Filter>CommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="FavoritesPage.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.Open.cpp">
+      <Filter>Pages\MainPage\MainPage.xaml.Open</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPage.xaml.Save.cpp">
+      <Filter>Pages\MainPage\MainPage.xaml.Save</Filter>
+    </ClCompile>
+    <ClCompile Include="Notification.cpp">
+      <Filter>CommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiloadPage.xaml.cpp" />
+    <ClCompile Include="Flyout.cpp">
+      <Filter>CommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPage.xaml.Share.cpp">
+      <Filter>Pages\MainPage\MainPage.xaml.Share</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiloadPage.xaml.Open.cpp">
+      <Filter>Pages\MultiloadPage\MultiloadPage.xaml.Open</Filter>
+    </ClCompile>
+    <ClCompile Include="Functors.cpp">
+      <Filter>CommonTools</Filter>
+    </ClCompile>
+    <ClCompile Include="FavoritesPage.xaml.History.cpp">
+      <Filter>Pages\FavoritesPage\FavoritesPage.xaml.History</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="AboutPage.xaml.h" />
+    <ClInclude Include="ShareTargetPage.xaml.h" />
+    <ClInclude Include="pch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsPage.xaml.h" />
+    <ClInclude Include="TextEditPage.xaml.h" />
+    <ClInclude Include="CommonTools.h">
+      <Filter>CommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="Clipboard.h">
+      <Filter>CommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="FavoritesPage.xaml.h" />
+    <ClInclude Include="MainPage.xaml.Open.h">
+      <Filter>Pages\MainPage\MainPage.xaml.Open</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPage.xaml.Save.h">
+      <Filter>Pages\MainPage\MainPage.xaml.Save</Filter>
+    </ClInclude>
+    <ClInclude Include="Notification.h">
+      <Filter>CommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiloadPage.xaml.h" />
+    <ClInclude Include="Flyout.h">
+      <Filter>CommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPage.xaml.Share.h">
+      <Filter>Pages\MainPage\MainPage.xaml.Share</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiloadPage.xaml.Open.h">
+      <Filter>Pages\MultiloadPage\MultiloadPage.xaml.Open</Filter>
+    </ClInclude>
+    <ClInclude Include="Functors.h">
+      <Filter>CommonTools</Filter>
+    </ClInclude>
+    <ClInclude Include="FavoritesPage.xaml.History.h">
+      <Filter>Pages\FavoritesPage\FavoritesPage.xaml.History</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml">
+      <Filter>Pages\MainPage</Filter>
+    </Page>
+    <Page Include="AboutPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="ShareTargetPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="SettingsPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="TextEditPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="MultiloadPage.xaml">
+      <Filter>Pages\MultiloadPage</Filter>
+    </Page>
+    <Page Include="FavoritesPage.xaml">
+      <Filter>Pages\FavoritesPage</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <Filter>Strings\en-us</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Resources.resw">
+      <Filter>Strings\ru-ru</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\en-GB\Resources.resw">
+      <Filter>Strings\en-GB</Filter>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Square71x71Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Large310x310Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Large310x310Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Large310x310Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Large310x310Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Large310x310Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-32.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-48.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-256.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClipboardManager_TemporaryKey.pfx" />
+  </ItemGroup>
+</Project>
