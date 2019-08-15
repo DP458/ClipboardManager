@@ -8,3 +8,4 @@ The Clipboard Manager app supports x86, x64 ARM and ARM64 versions of Windows OS
 
 ## Building
 For building the ClipboardManager app or creating UWP app package is needed to open [src\ClipboardManager.sln](./src/ClipboardManager.sln) in Visual Studio where in solution is located `ClipboardManager` project.
+<br>The [project](./src/ClipboardManager/ClipboardManager.vcxproj) is targeted on the Windows 10 SDK (10.0.17763.0) for Windows 10, version 1809.
