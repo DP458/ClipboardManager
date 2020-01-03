@@ -226,6 +226,15 @@
     <Page Include="AboutPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Styles\FlyoutStyles.xaml">
+      <DeploymentContent>true</DeploymentContent>
+    </Page>
+    <Page Include="Styles\MenuFlyoutStyles.xaml">
+      <DeploymentContent>true</DeploymentContent>
+    </Page>
+    <Page Include="Styles\TopAppBarStyles.xaml">
+      <DeploymentContent>true</DeploymentContent>
+    </Page>
     <Page Include="FavoritesPage.xaml">
       <SubType>Designer</SubType>
     </Page>

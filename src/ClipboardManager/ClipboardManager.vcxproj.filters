@@ -50,6 +50,9 @@
     <Filter Include="Pages\FavoritesPage\FavoritesPage.xaml.History">
       <UniqueIdentifier>{8e0abbf0-641b-4bda-8d06-30a4d931fb97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Styles">
+      <UniqueIdentifier>{644c24e8-aa7f-4513-96b2-44058be6f4d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -164,6 +167,15 @@
     </Page>
     <Page Include="FavoritesPage.xaml">
       <Filter>Pages\FavoritesPage</Filter>
+    </Page>
+    <Page Include="Styles\TopAppBarStyles.xaml">
+      <Filter>Styles</Filter>
+    </Page>
+    <Page Include="Styles\FlyoutStyles.xaml">
+      <Filter>Styles</Filter>
+    </Page>
+    <Page Include="Styles\MenuFlyoutStyles.xaml">
+      <Filter>Styles</Filter>
     </Page>
   </ItemGroup>
   <ItemGroup>
