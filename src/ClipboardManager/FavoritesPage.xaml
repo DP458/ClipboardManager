@@ -2,6 +2,7 @@
     x:Class="ClipboardManager.FavoritesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClipboardManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" 
@@ -52,7 +53,7 @@
                 <AppBarButton x:Name="ButtonSaveAll" x:Uid="FavoritesPageButtonSaveAll" Icon="Save" Label="Save All" Click="ButtonSaveAll_Click"/>
                 <AppBarButton x:Name="ButtonClearFavorites" x:Uid="FavoritesPageButtonClearFavorites" Icon="Delete" Label="Clear Favorites" 
                               Click="ButtonClearFavorites_Click"/>
-                <AppBarButton x:Name="ButtonBack" x:Uid="FavoritesPageButtonBack" Icon="Back" Label="Back" Click="ButtonBack_Click"/>
+                <AppBarButton x:Name="ButtonBack" x:Uid="FavoritesPageButtonBack" Icon="Back" Label="Back" Command="{x:Bind local:MainStaticObject.PageBackwardCommand}"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

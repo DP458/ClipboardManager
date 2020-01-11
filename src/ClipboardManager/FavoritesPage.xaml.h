@@ -75,7 +75,6 @@ private:
 	Windows::Storage::Pickers::FolderPicker^ CreateFolderPicker();
 	void ButtonSaveAll_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonClearFavorites_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-	void ButtonBack_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	Windows::UI::Xaml::Media::SolidColorBrush^ GetBrush(unsigned char A, unsigned char R, unsigned char G, unsigned char B);
 	void LoadFavoriteItem(ClipboardManager::CommonTools::ClipboardDataType type, Platform::Object^ data);
 	Windows::UI::Xaml::Controls::Grid^ CreateWindowHeader(Platform::String^ title, Windows::Storage::StorageFile^ file);

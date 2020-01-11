@@ -304,11 +304,6 @@ if (!IsConfirmClearFavoritesEnabled)
 
 }
 
-void ClipboardManager::FavoritesPage::ButtonBack_Click(Object^ sender, RoutedEventArgs^ e)
-{
-GoBack();
-}
-
 SolidColorBrush^ ClipboardManager::FavoritesPage::GetBrush(unsigned char A, unsigned char R, unsigned char G, unsigned char B)
 {
 
@@ -438,7 +433,7 @@ if (ItemsControl1->Items->Size == 0)
 {
 SetEmptyPageStub();
 if (static_cast<bool>(localSettings->Values->Lookup("ExitFavoritesPage")))
-	GoBack();
+	MainStaticObject::GoBack();
 return;
 }
 ElementCountNumber->Text = ItemsControl1->Items->Size.ToString();
@@ -473,7 +468,7 @@ body->Tapped += ref new TappedEventHandler
 [this, type, data](Object^ sender, TappedRoutedEventArgs^ e)
 {
 LoadFavoriteItem(type, data);
-GoBack();
+MainStaticObject::GoBack();
 }
 );
 Uri^ link = dynamic_cast<Uri^>(data);
@@ -494,7 +489,7 @@ body->Tapped += ref new TappedEventHandler
 [this, type, data](Object^ sender, TappedRoutedEventArgs^ e)
 {
 LoadFavoriteItem(type, data);
-GoBack();
+MainStaticObject::GoBack();
 }
 );
 String^ text = dynamic_cast<String^>(data);
@@ -527,7 +522,7 @@ img->Tapped += ref new TappedEventHandler
 [this, type, data](Object^ sender, TappedRoutedEventArgs^ e)
 {
 LoadFavoriteItem(type, data);
-GoBack();
+MainStaticObject::GoBack();
 }
 );
 img->Source = bitmapImage;

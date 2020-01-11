@@ -209,11 +209,6 @@ template<class T> bool ClipboardManager::SettingsPage::SetSetting(String^ name, 
 return localSettings->Values->Insert(name, value);
 }
 
-void ClipboardManager::SettingsPage::ButtonBack_Click(Platform::Object^ sender, RoutedEventArgs^ e)
-{
-GoBack();
-}
-
 void ClipboardManager::SettingsPage::ThemeSwitcher_Toggled(Object^ sender, RoutedEventArgs^ e)
 {
 SetSetting("DarkTheme", ThemeSwitcher->IsOn);

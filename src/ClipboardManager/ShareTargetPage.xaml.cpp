@@ -52,7 +52,7 @@ if (shareOperation == nullptr)
 {
 ShowError("Failed to get share data", "", localSettings->Values);
 OperationCompleted = true;
-GoBack();
+MainStaticObject::GoBack();
 return;
 }
 ToggleButtonTextWrapping->IsChecked = static_cast<bool>(localSettings->Values->Lookup("TextWrappingShareTargetPage"));

@@ -233,7 +233,7 @@ catch (Exception^)
 {
 	fav_page->WaiterState = false;
 	ShowError("Failed to get cached files from local storage", "", fav_page->Properties);
-	GoBack();
+	MainStaticObject::GoBack();
 	return;
 }
 
@@ -289,7 +289,7 @@ try
 catch (Exception^)
 {
 	ShowError("Failed to clear the your favorites", "Please try it again", fav_page->Properties);
-	GoBack();
+	MainStaticObject::GoBack();
 	return;
 }
 
@@ -297,6 +297,6 @@ if (static_cast<bool>(fav_page->Properties->Lookup("ShowSuccessClearFavoritesNot
 	UserNotify(fav_page->Res->GetString("NotifyClearFavorites"), "", NotificationGroup::SaveData);
 
 if (static_cast<bool>(this->fav_page->Properties->Lookup("ExitFavoritesPage")))
-	GoBack();
+	MainStaticObject::GoBack();
 
 }

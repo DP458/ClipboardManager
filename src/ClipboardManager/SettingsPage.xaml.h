@@ -21,7 +21,6 @@ private:
 	void Page_Loaded(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void SetFontSizeSwitcher(int size);
 	template<class T> bool SetSetting(Platform::String^ name, T value);
-	void ButtonBack_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ThemeSwitcher_Toggled(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void OnSelectionChanged(Platform::Object ^sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs ^e);
 	void LanguageSwitcherSelectionChanged(Platform::Object ^sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs ^e);

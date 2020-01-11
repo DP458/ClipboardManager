@@ -62,13 +62,13 @@ DataPackageView^ dp_view = GetClipboardContent();
 if (dp_view == nullptr)
 {
 ShowError("Failed to get string from the clipboard", "", localSettings->Values);
-GoBack();
+MainStaticObject::GoBack();
 return;
 }
 if (!dp_view->Contains(StandardDataFormats::Text))
 {
 ShowError("Failed to get string from the clipboard", "", localSettings->Values);
-GoBack();
+MainStaticObject::GoBack();
 return;
 }
 create_task(dp_view->GetTextAsync(StandardDataFormats::Text)).then
@@ -83,7 +83,7 @@ catch (Exception^)
 {
 Waiter->IsActive = false;
 ShowError("Failed to get string from the clipboard", "", localSettings->Values);
-GoBack();
+MainStaticObject::GoBack();
 return;
 }
 RichTextEditor->Document->SetText(TextSetOptions::None, this->text);
@@ -105,12 +105,12 @@ if (static_cast<bool>(localSettings->Values->Lookup("ShowSuccessAddContentNotify
 }
 else
 	ShowError("Failed to load text into the clipboard", "", localSettings->Values);
-GoBack();
+MainStaticObject::GoBack();
 }
 
 void ClipboardManager::TextEditPage::ButtonCancel_Click(Object^ sender, RoutedEventArgs^ e)
 {
-GoBack();
+	MainStaticObject::GoBack();
 }
 
 void ClipboardManager::TextEditPage::ButtonSelectAll_Click(Object^ sender, RoutedEventArgs^ e)

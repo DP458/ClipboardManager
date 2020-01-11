@@ -94,15 +94,6 @@ scroller->HorizontalScrollBarVisibility = ScrollBarVisibility::Auto;
 scroller->Content = image;
 }
 
-void ClipboardManager::CommonTools::GoBack()
-{
-Frame^ rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
-if (rootFrame == nullptr)
-	return;
-if (rootFrame->CanGoBack)
-	rootFrame->GoBack();
-}
-
 Platform::String^ ClipboardManager::CommonTools::GenHashCode()
 {
 HashAlgorithmProvider^ provider = HashAlgorithmProvider::OpenAlgorithm(HashAlgorithmNames::Md5);

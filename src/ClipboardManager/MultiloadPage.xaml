@@ -49,7 +49,7 @@
                 <AppBarButton x:Name="ButtonAdd" x:Uid="MultiloadPageButtonAdd" Icon="Add" Label="Add"/>
                 <AppBarButton x:Name="ButtonClear" x:Uid="MultiloadPageButtonClear" Icon="Delete" Label="Clear" Click="ButtonClear_Click"/>
                 <AppBarButton x:Name="ButtonLoad" x:Uid="MultiloadPageButtonLoad" Icon="Copy" Label="Load" Click="ButtonLoad_Click"/>
-                <AppBarButton x:Name="ButtonBack" x:Uid="MultiloadPageButtonBack" Icon="Back" Label="Back" Click="ButtonBack_Click"/>
+                <AppBarButton x:Name="ButtonBack" x:Uid="MultiloadPageButtonBack" Icon="Back" Label="Back" Command="{x:Bind local:MainStaticObject.PageBackwardCommand}"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

@@ -53,6 +53,9 @@
     <Filter Include="Styles">
       <UniqueIdentifier>{644c24e8-aa7f-4513-96b2-44058be6f4d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainStaticObject">
+      <UniqueIdentifier>{6ba0dc73-e581-4ef3-91c5-aad25c412e19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
@@ -99,6 +102,9 @@
     <ClCompile Include="FavoritesPage.xaml.History.cpp">
       <Filter>Pages\FavoritesPage\FavoritesPage.xaml.History</Filter>
     </ClCompile>
+    <ClCompile Include="MainStaticObject\MainStaticObject.cpp">
+      <Filter>MainStaticObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.xaml.h" />
@@ -141,6 +147,9 @@
     </ClInclude>
     <ClInclude Include="FavoritesPage.xaml.History.h">
       <Filter>Pages\FavoritesPage\FavoritesPage.xaml.History</Filter>
+    </ClInclude>
+    <ClInclude Include="MainStaticObject\MainStaticObject.h">
+      <Filter>MainStaticObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

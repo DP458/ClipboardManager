@@ -4,3 +4,4 @@
 #include <ppltasks.h>
 
 #include "App.xaml.h"
+#include "MainStaticObject/MainStaticObject.h"

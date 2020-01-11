@@ -197,6 +197,7 @@
     <ClInclude Include="MainPage.xaml.Save.h" />
     <ClInclude Include="MainPage.xaml.Open.h" />
     <ClInclude Include="MainPage.xaml.Share.h" />
+    <ClInclude Include="MainStaticObject\MainStaticObject.h" />
     <ClInclude Include="MultiloadPage.xaml.h">
       <DependentUpon>MultiloadPage.xaml</DependentUpon>
     </ClInclude>
@@ -280,6 +281,7 @@
     <ClCompile Include="MainPage.xaml.Save.cpp" />
     <ClCompile Include="MainPage.xaml.Open.cpp" />
     <ClCompile Include="MainPage.xaml.Share.cpp" />
+    <ClCompile Include="MainStaticObject\MainStaticObject.cpp" />
     <ClCompile Include="MultiloadPage.xaml.cpp">
       <DependentUpon>MultiloadPage.xaml</DependentUpon>
     </ClCompile>

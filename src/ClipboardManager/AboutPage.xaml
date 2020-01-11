@@ -5,6 +5,8 @@
     xmlns:local="using:ClipboardManager"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:applicationModel="using:Windows.ApplicationModel"
+    xmlns:imaging="using:Windows.UI.Xaml.Media.Imaging"
     mc:Ignorable="d" 
     Loaded="Page_Loaded">
 
@@ -13,7 +15,7 @@
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{ThemeResource TopBarPageLogoStyle}" Text="&#xE946;"/>
-                    <TextBlock x:Name="PageHeader" x:Uid="AboutPageHeader" Style="{ThemeResource TopBarTextBlockStyle}" Text="Information"/>
+                    <TextBlock x:Uid="AboutPageHeader" Style="{ThemeResource TopBarTextBlockStyle}" Text="Information"/>
                 </StackPanel>
             </CommandBar.Content>
         </CommandBar>
@@ -29,7 +31,11 @@
                             <Border.Child>
                                 <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="34" Height="34">
                                     <Border.Child>
-                                        <Image x:Name="Logo"/>
+                                        <Image>
+                                            <Image.Source>
+                                                <imaging:BitmapImage UriSource="{x:Bind applicationModel:Package.Current.Logo}"/>
+                                            </Image.Source>
+                                        </Image>
                                     </Border.Child>
                                 </Border>
                             </Border.Child>
@@ -38,15 +44,15 @@
                             <TextBlock.Inlines>
                                 <Underline Foreground="{ThemeResource SystemControlBackgroundAccentBrush}">
                                     <Underline.Inlines>
-                                        <Run x:Name="AppName"/>
+                                        <Run Text="{x:Bind applicationModel:Package.Current.DisplayName}"/>
                                     </Underline.Inlines>
                                 </Underline>
                                 <LineBreak/>
                                 <Run x:Uid="AboutPageAppVersion" Text="Version"/>
-                                <Run x:Name="VersionNumber"/>
+                                <Run Text="{x:Bind local:MainStaticObject.AppVersionString}"/>
                                 <LineBreak/>
                                 <Run x:Uid="AboutPageAppDeveloper" Text="Developer"/>
-                                <Run x:Name="DeveloperName"/>
+                                <Run Text="{x:Bind applicationModel:Package.Current.PublisherDisplayName}"/>
                             </TextBlock.Inlines>
                         </TextBlock>
                     </StackPanel>
@@ -58,7 +64,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Name="ButtonBack" x:Uid="AboutPageButtonBack" Icon="Back" Label="Back" Click="ButtonBack_Click"/>
+                <AppBarButton x:Uid="AboutPageButtonBack" Icon="Back" Label="Back" Command="{x:Bind local:MainStaticObject.PageBackwardCommand}"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

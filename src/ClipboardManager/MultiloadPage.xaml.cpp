@@ -418,23 +418,18 @@ if (BMP_Stream != nullptr)
 catch (Exception^)
 {
 ShowError("Failed to load the items into the clipboard", "", localSettings->Values);
-GoBack();
+MainStaticObject::GoBack();
 return;
 }
 if (!LoadData(dataPackage))
 {
 ShowError("Failed to load the items into the clipboard", "", localSettings->Values);
-GoBack();
+MainStaticObject::GoBack();
 return;
 }
 if (static_cast<bool>(localSettings->Values->Lookup("ShowSuccessAddContentNotify")))
 	UserNotify(resourceLoader->GetString("MultiloadPageSuccessAddContentText"), "", NotificationGroup::CopyToClipboard);
-GoBack();
-}
-
-void ClipboardManager::MultiloadPage::ButtonBack_Click(Object^ sender, RoutedEventArgs^ e)
-{
-GoBack();
+MainStaticObject::GoBack();
 }
 
 void ClipboardManager::MultiloadPage::AddContent(const ClipboardDataType type)

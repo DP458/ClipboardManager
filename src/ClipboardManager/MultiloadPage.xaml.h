@@ -72,7 +72,6 @@ private:
 	void MenuFlyoutItemAddImage_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonClear_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonLoad_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-	void ButtonBack_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void AddContent(const ClipboardManager::CommonTools::ClipboardDataType type);
 };
 
