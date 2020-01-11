@@ -38,10 +38,55 @@ using namespace Windows::Storage::Pickers;
 
 // Public
 
-void ClipboardManager::MainPage::SetClipboardChangedFlag(bool isChanged)
+#pragma region Properties
+
+#pragma region WaiterState
+
+bool ClipboardManager::MainPage::WaiterState::get()
 {
-IsClipboardChanged = isChanged;
+	return Waiter->IsActive;
 }
+
+void ClipboardManager::MainPage::WaiterState::set(bool value)
+{
+	Waiter->IsActive = value;
+}
+
+#pragma endregion
+
+#pragma region Properties
+
+IPropertySet^ ClipboardManager::MainPage::Properties::get()
+{
+	return localSettings->Values;
+}
+
+#pragma endregion
+
+#pragma region Res
+
+ResourceLoader^ ClipboardManager::MainPage::Res::get()
+{
+	return this->resourceLoader;
+}
+
+#pragma endregion
+
+#pragma region IsClipboardChanged
+
+bool ClipboardManager::MainPage::IsClipboardChanged::get()
+{
+	return _isClipboardChanged;
+}
+
+void ClipboardManager::MainPage::IsClipboardChanged::set(bool value)
+{
+	_isClipboardChanged = value;
+}
+
+#pragma endregion
+
+#pragma endregion
 
 ClipboardManager::MainPage::MainPage()
 {
@@ -315,290 +360,288 @@ dataTransferManager->ShowShareUI();
 
 void ClipboardManager::MainPage::ButtonClear_Click(Object^ sender, RoutedEventArgs^ e)
 {
-
-if (!IsConfirmClearEnabled)
-	if (!ClearClipboard())
-		ShowError("Failed to clear the clipboard", "", localSettings->Values);
-
+	if (!IsConfirmClearEnabled)
+		if (!ClearClipboard())
+			ShowError("Failed to clear the clipboard", "", localSettings->Values);
 }
 
 void ClipboardManager::MainPage::ComboBox_SelectionChanged(Object^ sender, SelectionChangedEventArgs^ e)
 {
 
-if (TypeSwitcher->SelectedItem == nullptr)
-{
-	TypeSwitcher->Items->Clear();
-	return;
-}
-
-Waiter->IsActive = true;
-data = nullptr;
-Scroller->Content = nullptr;
-
-SetBottomBarButtonState(false);
-
-ComboBoxItem^ item = dynamic_cast<ComboBoxItem^>(TypeSwitcher->SelectedItem);
-clipboardDataType = static_cast<ClipboardDataType>(item->Tag);
-
-if 
-(
-(clipboardDataType == ClipboardDataType::Nothing) || (clipboardDataType == ClipboardDataType::Unknown)
-)
-{
-
-	Scroller->HorizontalScrollBarVisibility = ScrollBarVisibility::Disabled;
-
-	if (clipboardDataType == ClipboardDataType::Nothing)
-		Scroller->Content = CreateStubCaption(resourceLoader->GetString("MainPageEmptyClipboardStub"));
-	else
+	if (TypeSwitcher->SelectedItem == nullptr)
 	{
-		Scroller->Content = CreateStubCaption(resourceLoader->GetString("MainPageUnknownClipboardDataStub"));
-		ButtonClear->IsEnabled = true;
+		TypeSwitcher->Items->Clear();
+		return;
 	}
 
-	Waiter->IsActive = false;
+	Waiter->IsActive = true;
+	data = nullptr;
+	Scroller->Content = nullptr;
 
-	return;
+	SetBottomBarButtonState(false);
 
-}
+	ComboBoxItem^ item = dynamic_cast<ComboBoxItem^>(TypeSwitcher->SelectedItem);
+	clipboardDataType = static_cast<ClipboardDataType>(item->Tag);
 
-DataPackageView^ dp_view = GetClipboardContent();
+	if
+		(
+		(clipboardDataType == ClipboardDataType::Nothing) || (clipboardDataType == ClipboardDataType::Unknown)
+			)
+	{
 
-if (dp_view == nullptr)
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowDataError"), "", localSettings->Values);
-	return;
-}
+		Scroller->HorizontalScrollBarVisibility = ScrollBarVisibility::Disabled;
 
-switch (clipboardDataType)
-{
+		if (clipboardDataType == ClipboardDataType::Nothing)
+			Scroller->Content = CreateStubCaption(resourceLoader->GetString("MainPageEmptyClipboardStub"));
+		else
+		{
+			Scroller->Content = CreateStubCaption(resourceLoader->GetString("MainPageUnknownClipboardDataStub"));
+			ButtonClear->IsEnabled = true;
+		}
 
-case ClipboardDataType::Link:
+		Waiter->IsActive = false;
 
-if (!dp_view->Contains(StandardDataFormats::WebLink))
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowLinkError"), "", localSettings->Values);
-	return;
-}
+		return;
 
-create_task(dp_view->GetWebLinkAsync()).then
-(
-[this](const task<Uri^>& task_link)
-{
+	}
 
-Uri^ link;
+	DataPackageView^ dp_view = GetClipboardContent();
 
-try
-{
-	link = task_link.get();
-}
-catch (Exception^)
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowLinkError"), "", localSettings->Values);
-	return;
-}
+	if (dp_view == nullptr)
+	{
+		ButtonClear->IsEnabled = true;
+		Waiter->IsActive = false;
+		ShowError(resourceLoader->GetString("MainPageShowDataError"), "", localSettings->Values);
+		return;
+	}
 
-data = link;
-SetLink(Scroller, link);
+	switch (clipboardDataType)
+	{
 
-ButtonSave->IsEnabled = true;
-ButtonShare->IsEnabled = true;
-ButtonClear->IsEnabled = true;
-ButtonFavorite->IsEnabled = true;
-Waiter->IsActive = false;
+	case ClipboardDataType::Link:
 
-return;
+		if (!dp_view->Contains(StandardDataFormats::WebLink))
+		{
+			ButtonClear->IsEnabled = true;
+			Waiter->IsActive = false;
+			ShowError(resourceLoader->GetString("MainPageShowLinkError"), "", localSettings->Values);
+			return;
+		}
 
-}
-);
-return;
+		create_task(dp_view->GetWebLinkAsync()).then
+		(
+			[this](const task<Uri^>& task_link)
+			{
 
-case ClipboardDataType::Text:
+				Uri^ link;
 
-if (!dp_view->Contains(StandardDataFormats::Text))
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowTextError"), "", localSettings->Values);
-	return;
-}
+				try
+				{
+					link = task_link.get();
+				}
+				catch (Exception^)
+				{
+					ButtonClear->IsEnabled = true;
+					Waiter->IsActive = false;
+					ShowError(resourceLoader->GetString("MainPageShowLinkError"), "", localSettings->Values);
+					return;
+				}
 
-create_task(dp_view->GetTextAsync(StandardDataFormats::Text)).then
-(
-[this](const task<String^>& task_text)
-{
+				data = link;
+				SetLink(Scroller, link);
 
-String^ text;
+				ButtonSave->IsEnabled = true;
+				ButtonShare->IsEnabled = true;
+				ButtonClear->IsEnabled = true;
+				ButtonFavorite->IsEnabled = true;
+				Waiter->IsActive = false;
 
-try
-{
-	text = task_text.get();
-}
-catch (Exception^)
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowTextError"), "", localSettings->Values);
-	return;
-}
+				return;
 
-data = text;
-SetText(Scroller, text, MenuFlyoutCheckBoxTextWrapping->IsChecked->Value);
+			}
+		);
+		return;
 
-SetBottomBarButtonState(true);
+	case ClipboardDataType::Text:
 
-Waiter->IsActive = false;
+		if (!dp_view->Contains(StandardDataFormats::Text))
+		{
+			ButtonClear->IsEnabled = true;
+			Waiter->IsActive = false;
+			ShowError(resourceLoader->GetString("MainPageShowTextError"), "", localSettings->Values);
+			return;
+		}
 
-return;
+		create_task(dp_view->GetTextAsync(StandardDataFormats::Text)).then
+		(
+			[this](const task<String^>& task_text)
+			{
 
-}
-);
-return;
+				String^ text;
 
-case ClipboardDataType::Files:
+				try
+				{
+					text = task_text.get();
+				}
+				catch (Exception^)
+				{
+					ButtonClear->IsEnabled = true;
+					Waiter->IsActive = false;
+					ShowError(resourceLoader->GetString("MainPageShowTextError"), "", localSettings->Values);
+					return;
+				}
 
-if (!dp_view->Contains(StandardDataFormats::StorageItems))
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowFilesError"), "", localSettings->Values);
-	return;
-}
+				data = text;
+				SetText(Scroller, text, MenuFlyoutCheckBoxTextWrapping->IsChecked->Value);
 
-create_task(dp_view->GetStorageItemsAsync()).then
-(
-[this](const task<IVectorView<IStorageItem^>^>& task_items)
-{
+				SetBottomBarButtonState(true);
 
-IVectorView<IStorageItem^>^ items;
+				Waiter->IsActive = false;
 
-try
-{
-	items = task_items.get();
-}
-catch (Exception^)
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowFilesError"), "", localSettings->Values);
-	return;
-}
+				return;
 
-data = items;
-SetFiles(Scroller, items);
+			}
+		);
+		return;
 
-ButtonSave->IsEnabled = true;
-ButtonShare->IsEnabled = true;
-ButtonClear->IsEnabled = true;
-Waiter->IsActive = false;
+	case ClipboardDataType::Files:
 
-return;
+		if (!dp_view->Contains(StandardDataFormats::StorageItems))
+		{
+			ButtonClear->IsEnabled = true;
+			Waiter->IsActive = false;
+			ShowError(resourceLoader->GetString("MainPageShowFilesError"), "", localSettings->Values);
+			return;
+		}
 
-}
-);
-return;
+		create_task(dp_view->GetStorageItemsAsync()).then
+		(
+			[this](const task<IVectorView<IStorageItem^>^>& task_items)
+			{
 
-case ClipboardDataType::Image:
+				IVectorView<IStorageItem^>^ items;
 
-if (!dp_view->Contains(StandardDataFormats::Bitmap))
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowImageError"), "", localSettings->Values);
-	return;
-}
+				try
+				{
+					items = task_items.get();
+				}
+				catch (Exception^)
+				{
+					ButtonClear->IsEnabled = true;
+					Waiter->IsActive = false;
+					ShowError(resourceLoader->GetString("MainPageShowFilesError"), "", localSettings->Values);
+					return;
+				}
 
-{
+				data = items;
+				SetFiles(Scroller, items);
 
-auto t2 = create_task(dp_view->GetBitmapAsync()).then
-(
-[](const task<RandomAccessStreamReference^>& t)->task<IRandomAccessStreamWithContentType^>
-{
+				ButtonSave->IsEnabled = true;
+				ButtonShare->IsEnabled = true;
+				ButtonClear->IsEnabled = true;
+				Waiter->IsActive = false;
 
-RandomAccessStreamReference^ bitmap_stream_ref;
+				return;
 
-try
-{
-	bitmap_stream_ref = t.get();
-}
-catch (Exception^)
-{
-	return task<IRandomAccessStreamWithContentType^>();
-}
+			}
+		);
+		return;
 
-return create_task(bitmap_stream_ref->OpenReadAsync());
+	case ClipboardDataType::Image:
 
-}
-);
+		if (!dp_view->Contains(StandardDataFormats::Bitmap))
+		{
+			ButtonClear->IsEnabled = true;
+			Waiter->IsActive = false;
+			ShowError(resourceLoader->GetString("MainPageShowImageError"), "", localSettings->Values);
+			return;
+		}
 
-BitmapImage^ bitmap_image = ref new BitmapImage();
+		{
 
-auto t3 = t2.then
-(
-[this, bitmap_image](const task<IRandomAccessStreamWithContentType^>& task_image_stream)->task<void>
-{
+			auto t2 = create_task(dp_view->GetBitmapAsync()).then
+			(
+				[](const task<RandomAccessStreamReference^>& t)->task<IRandomAccessStreamWithContentType^>
+				{
 
-IRandomAccessStreamWithContentType^ image_stream;
+					RandomAccessStreamReference^ bitmap_stream_ref;
 
-try
-{
-	image_stream = task_image_stream.get();
-}
-catch (Exception^ ex)
-{
-	return task<void>();
-}
+					try
+					{
+						bitmap_stream_ref = t.get();
+					}
+					catch (Exception^)
+					{
+						return task<IRandomAccessStreamWithContentType^>();
+					}
 
-data = image_stream->CloneStream();
+					return create_task(bitmap_stream_ref->OpenReadAsync());
 
-return create_task(bitmap_image->SetSourceAsync(image_stream));
+				}
+			);
 
-}
-);
+			BitmapImage^ bitmap_image = ref new BitmapImage();
 
-t3.then
-(
-[this, bitmap_image](const task<void>& t)
-{
+			auto t3 = t2.then
+			(
+				[this, bitmap_image](const task<IRandomAccessStreamWithContentType^>& task_image_stream)->task<void>
+				{
 
-try
-{
-	t.get();
-}
-catch (Exception^)
-{
-	ButtonClear->IsEnabled = true;
-	Waiter->IsActive = false;
-	ShowError(resourceLoader->GetString("MainPageShowImageError"), "", localSettings->Values);
-	return;
-}
+					IRandomAccessStreamWithContentType^ image_stream;
 
-SetImage(Scroller, bitmap_image);
+					try
+					{
+						image_stream = task_image_stream.get();
+					}
+					catch (Exception ^ ex)
+					{
+						return task<void>();
+					}
 
-ButtonSave->IsEnabled = true;
-ButtonShare->IsEnabled = true;
-ButtonClear->IsEnabled = true;
-ButtonFavorite->IsEnabled = true;
-Waiter->IsActive = false;
+					data = image_stream->CloneStream();
 
-return;
+					return create_task(bitmap_image->SetSourceAsync(image_stream));
 
-}
-);
+				}
+			);
 
-}
-return;
+			t3.then
+			(
+				[this, bitmap_image](const task<void>& t)
+				{
 
-default:
-return;
+					try
+					{
+						t.get();
+					}
+					catch (Exception^)
+					{
+						ButtonClear->IsEnabled = true;
+						Waiter->IsActive = false;
+						ShowError(resourceLoader->GetString("MainPageShowImageError"), "", localSettings->Values);
+						return;
+					}
 
-}
+					SetImage(Scroller, bitmap_image);
+
+					ButtonSave->IsEnabled = true;
+					ButtonShare->IsEnabled = true;
+					ButtonClear->IsEnabled = true;
+					ButtonFavorite->IsEnabled = true;
+					Waiter->IsActive = false;
+
+					return;
+
+				}
+			);
+
+		}
+		return;
+
+	default:
+		return;
+
+	}
 
 }
 
@@ -949,46 +992,46 @@ else
 
 }
 
-void ClipboardManager::MainPage::OnContentChanged(Object ^sender, Object ^args)
+void ClipboardManager::MainPage::OnContentChanged(Object^ sender, Object^ args)
 {
 
-IsClipboardChanged = true;
+	IsClipboardChanged = true;
 
-if (!IsActive)
-	return;
+	if (!IsActive)
+		return;
 
-TypeSwitcher->SelectedItem = nullptr;
-IsClipboardChanged = false;
+	TypeSwitcher->SelectedItem = nullptr;
+	IsClipboardChanged = false;
 
-DataPackageView^ dp_view = GetClipboardContent();
+	DataPackageView^ dp_view = GetClipboardContent();
 
-if (dp_view == nullptr)
-{
-	ShowError(resourceLoader->GetString("MainPageShowDataError"), "", localSettings->Values);
-	SetComboBoxItem(TypeSwitcher, ClipboardDataType::Unknown, resourceLoader->GetString("MainPageComboBoxItemUnknown"));
-	return;
-}
+	if (dp_view == nullptr)
+	{
+		ShowError(resourceLoader->GetString("MainPageShowDataError"), "", localSettings->Values);
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Unknown, resourceLoader->GetString("MainPageComboBoxItemUnknown"));
+		return;
+	}
 
-if (dp_view->AvailableFormats->Size == 0)
-{
-	SetComboBoxItem(TypeSwitcher, ClipboardDataType::Nothing, resourceLoader->GetString("MainPageComboBoxItemNothing"));
-	return;
-}
+	if (dp_view->AvailableFormats->Size == 0)
+	{
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Nothing, resourceLoader->GetString("MainPageComboBoxItemNothing"));
+		return;
+	}
 
-if (dp_view->Contains(StandardDataFormats::WebLink))
-	SetComboBoxItem(TypeSwitcher, ClipboardDataType::Link, resourceLoader->GetString("MainPageComboBoxItemLink"));
+	if (dp_view->Contains(StandardDataFormats::WebLink))
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Link, resourceLoader->GetString("MainPageComboBoxItemLink"));
 
-if (dp_view->Contains(StandardDataFormats::Text))
-	SetComboBoxItem(TypeSwitcher, ClipboardDataType::Text, resourceLoader->GetString("MainPageComboBoxItemText"));
+	if (dp_view->Contains(StandardDataFormats::Text))
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Text, resourceLoader->GetString("MainPageComboBoxItemText"));
 
-if (dp_view->Contains(StandardDataFormats::StorageItems))
-	SetComboBoxItem(TypeSwitcher, ClipboardDataType::Files, resourceLoader->GetString("MainPageComboBoxItemFiles"));
+	if (dp_view->Contains(StandardDataFormats::StorageItems))
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Files, resourceLoader->GetString("MainPageComboBoxItemFiles"));
 
-if (dp_view->Contains(StandardDataFormats::Bitmap))
-	SetComboBoxItem(TypeSwitcher, ClipboardDataType::Image, resourceLoader->GetString("MainPageComboBoxItemImage"));
+	if (dp_view->Contains(StandardDataFormats::Bitmap))
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Image, resourceLoader->GetString("MainPageComboBoxItemImage"));
 
-if (TypeSwitcher->SelectedItem == nullptr)
-	SetComboBoxItem(TypeSwitcher,ClipboardDataType::Unknown, resourceLoader->GetString("MainPageComboBoxItemUnknown"));
+	if (TypeSwitcher->SelectedItem == nullptr)
+		SetComboBoxItem(TypeSwitcher, ClipboardDataType::Unknown, resourceLoader->GetString("MainPageComboBoxItemUnknown"));
 
 }
 

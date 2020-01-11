@@ -9,41 +9,58 @@ namespace ClipboardManager
 public ref class MainPage sealed 
 {
 public:
-	void SetClipboardChangedFlag(bool isChanged);
 	MainPage();
+
+#pragma region Properties
+
+#pragma region WaiterState
+
+public:
 	property bool WaiterState
 	{
-
-		bool get()
-		{
-			return Waiter->IsActive;
-		}
-
-		void set(bool value)
-		{
-			Waiter->IsActive = value;
-		}
-
+		bool get();
+		void set(bool value);
 	}
+
+#pragma endregion
+
+#pragma region Properties
+
+public:
 	property Windows::Foundation::Collections::IPropertySet^ Properties
 	{
-
-		Windows::Foundation::Collections::IPropertySet^ get()
-		{
-			return localSettings->Values;
-		}
-
+		Windows::Foundation::Collections::IPropertySet^ get();
 	}
+
+#pragma endregion
+
+#pragma region Res
+
+public:
 	property Windows::ApplicationModel::Resources::ResourceLoader^ Res
 	{
-
-		Windows::ApplicationModel::Resources::ResourceLoader^ get()
-		{
-			return this->resourceLoader;
-		}
-
+		Windows::ApplicationModel::Resources::ResourceLoader^ get();
 	}
 
+#pragma endregion
+
+#pragma region IsClipboardChanged
+
+private:
+	bool _isClipboardChanged;
+
+public:
+	property bool IsClipboardChanged
+	{
+		bool get();
+		void set(bool value);
+	}
+
+#pragma endregion
+
+#pragma endregion
+
+public:
 	void SetBottomBarButtonState(bool state);
 
 protected:
@@ -58,7 +75,6 @@ private:
 	Windows::ApplicationModel::Resources::ResourceLoader^ resourceLoader;
 	Platform::Agile<Windows::ApplicationModel::DataTransfer::DataTransferManager> dataTransferManager;
 	bool IsActive;
-	bool IsClipboardChanged;
 	bool IsBackPage;
 	Windows::Foundation::EventRegistrationToken windowActivatedEventHandler;
 	Windows::Foundation::EventRegistrationToken clipboardContentChangedEventHandler;
