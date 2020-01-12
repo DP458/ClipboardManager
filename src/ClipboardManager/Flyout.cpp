@@ -140,7 +140,8 @@ Button^ ClipboardManager::CommonTools::CreateMenuFlyoutButton(Application^ app, 
 {
 Button^ b = ref new Button();
 b->Style = dynamic_cast<Windows::UI::Xaml::Style^>(app->Resources->Lookup("MenuFlyoutButtonStyle"));
-b->Click += clickHandler;
+if (clickHandler != nullptr)
+	b->Click += clickHandler;
 StackPanel^ sp = ref new StackPanel();
 sp->Orientation = Orientation::Horizontal;
 TextBlock^ tb = ref new TextBlock();

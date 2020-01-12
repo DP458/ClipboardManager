@@ -37,8 +37,8 @@
                 <AppBarButton x:Name="ButtonSave" x:Uid="MainPageButtonSave" Icon="Save" Click="ButtonSave_Click"/>
                 <AppBarButton x:Name="ButtonShare" x:Uid="MainPageButtonShare" Icon="ReShare" Click="ButtonShare_Click"/>
                 <AppBarButton x:Name="ButtonClear" x:Uid="MainPageButtonClear" Icon="Clear" Click="ButtonClear_Click"/>
-                <AppBarButton x:Name="ButtonEdit" x:Uid="MainPageButtonEdit" Icon="Edit" Click="ButtonEdit_Click"/>
-                <AppBarButton x:Uid="MainPageButtonFavorites" Icon="AllApps" Click="ButtonFavorites_Click"/>
+                <AppBarButton x:Name="ButtonEdit" x:Uid="MainPageButtonEdit" Icon="Edit" Command="{x:Bind local:MainStaticObject.GoToPageCommand}" CommandParameter="{x:Bind local:ClipboardManagerPages.TextEditPage}"/>
+                <AppBarButton x:Uid="MainPageButtonFavorites" Icon="AllApps" Command="{x:Bind local:MainStaticObject.GoToPageCommand}" CommandParameter="{x:Bind local:ClipboardManagerPages.FavoritesPage}"/>
                 <AppBarButton x:Name="ButtonFavorite" x:Uid="MainPageButtonFavorite" Icon="Favorite" Click="ButtonFavorite_Click"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>

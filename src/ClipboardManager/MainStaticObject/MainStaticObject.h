@@ -2,6 +2,15 @@
 
 namespace ClipboardManager
 {
+	public enum class ClipboardManagerPages : int
+	{
+		AboutPage = 1,
+		SettingsPage = 2,
+		TextEditPage = 3,
+		FavoritesPage = 4,
+		MultiloadPage = 5
+	};
+
 	public ref class MainStaticObject sealed
 	{
 	private:
@@ -17,6 +26,8 @@ namespace ClipboardManager
 
 #pragma endregion
 
+#pragma region Commands
+
 #pragma region PageBackwardCommand
 
 	private:
@@ -27,6 +38,21 @@ namespace ClipboardManager
 		{
 			Windows::UI::Xaml::Input::ICommand^ get();
 		}
+
+#pragma endregion
+
+#pragma region GoToPageCommand
+
+	private:
+		static void GoToPage(Object^ parameter);
+
+	public:
+		static property Windows::UI::Xaml::Input::ICommand^ GoToPageCommand
+		{
+			Windows::UI::Xaml::Input::ICommand^ get();
+		}
+
+#pragma endregion
 
 #pragma endregion
 

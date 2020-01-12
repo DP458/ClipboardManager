@@ -8,12 +8,6 @@
 #include "MainPage.xaml.Save.h"
 #include "MainPage.xaml.Open.h"
 
-#include "AboutPage.xaml.h"
-#include "SettingsPage.xaml.h"
-#include "TextEditPage.xaml.h"
-#include "FavoritesPage.xaml.h"
-#include "MultiloadPage.xaml.h"
-
 using namespace ClipboardManager;
 using namespace ClipboardManager::CommonTools;
 
@@ -177,130 +171,112 @@ e->Handled=true;
 
 void ClipboardManager::MainPage::CreateHamburgerButtonFlyout()
 {
-Flyout^ flyout = ref new Flyout();
-flyout->FlyoutPresenterStyle = ref new Windows::UI::Xaml::Style(TypeName(FlyoutPresenter::typeid));
-flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::PaddingProperty,Thickness(0,0,0,0)));
-flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::BorderBrushProperty, dynamic_cast<Brush^>(app->Resources->Lookup("SystemControlBackgroundAccentBrush"))));
-flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::RequestedThemeProperty, RequestedTheme));
-StackPanel^ sp = ref new StackPanel();
-sp->Orientation = Orientation::Vertical;
-sp->Padding = Thickness(0, 10, 0, 10);
-MenuFlyoutCheckBoxTextWrapping = CreateMenuFlyoutCheckBox
-(
-app,
-resourceLoader->GetString("MainPageCheckBoxTextWrapping"),
-ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutCheckBoxTextWrapping_StateChanged),
-ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutCheckBoxTextWrapping_StateChanged),
-static_cast<bool>(localSettings->Values->Lookup("TextWrapping"))
-);
-sp->Children->Append(MenuFlyoutCheckBoxTextWrapping);
-sp->Children->Append(ref new Windows::UI::Xaml::Controls::MenuFlyoutSeparator());
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xE115", 
-resourceLoader->GetString("MainPageButtonSettings"),
-ref new RoutedEventHandler
-(
-[this](Object^ sender, RoutedEventArgs^ e)
-{
-this->Frame->Navigate(TypeName(ClipboardManager::SettingsPage::typeid));
-}
-)
-)
-);
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xE946", 
-resourceLoader->GetString("MainPageButtonInfo"),
-ref new RoutedEventHandler
-(
-[this](Object^ sender, RoutedEventArgs^ e)
-{
-this->Frame->Navigate(TypeName(ClipboardManager::AboutPage::typeid));
-}
-)
-)
-);
-sp->Children->Append(ref new Windows::UI::Xaml::Controls::MenuFlyoutSeparator());
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xE8BB", 
-resourceLoader->GetString("MainPageButtonClose"),
-ref new RoutedEventHandler
-(
-[this](Object^ sender, RoutedEventArgs^ e)
-{
-this->app->Exit();
-}
-)
-)
-);
-flyout->Content = sp;
-ButtonHamburger->Flyout = flyout;
+	Flyout^ flyout = ref new Flyout();
+	flyout->FlyoutPresenterStyle = ref new Windows::UI::Xaml::Style(TypeName(FlyoutPresenter::typeid));
+	flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::PaddingProperty, Thickness(0, 0, 0, 0)));
+	flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::BorderBrushProperty, dynamic_cast<Brush^>(app->Resources->Lookup("SystemControlBackgroundAccentBrush"))));
+	flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::RequestedThemeProperty, RequestedTheme));
+	StackPanel^ sp = ref new StackPanel();
+	sp->Orientation = Orientation::Vertical;
+	sp->Padding = Thickness(0, 10, 0, 10);
+
+	MenuFlyoutCheckBoxTextWrapping = CreateMenuFlyoutCheckBox
+	(
+		app,
+		resourceLoader->GetString("MainPageCheckBoxTextWrapping"),
+		ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutCheckBoxTextWrapping_StateChanged),
+		ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutCheckBoxTextWrapping_StateChanged),
+		static_cast<bool>(localSettings->Values->Lookup("TextWrapping"))
+	);
+	sp->Children->Append(MenuFlyoutCheckBoxTextWrapping);
+
+	sp->Children->Append(ref new Windows::UI::Xaml::Controls::MenuFlyoutSeparator());
+
+	Button^ buttonSettings = CreateMenuFlyoutButton(app, L"\xE115", resourceLoader->GetString("MainPageButtonSettings"), nullptr);
+	buttonSettings->Command = MainStaticObject::GoToPageCommand;
+	buttonSettings->CommandParameter = ClipboardManagerPages::SettingsPage;
+	sp->Children->Append(buttonSettings);
+
+	Button^ buttonInfo = CreateMenuFlyoutButton(app, L"\xE946", resourceLoader->GetString("MainPageButtonInfo"), nullptr);
+	buttonInfo->Command = MainStaticObject::GoToPageCommand;
+	buttonInfo->CommandParameter = ClipboardManagerPages::AboutPage;
+	sp->Children->Append(buttonInfo);
+
+	sp->Children->Append(ref new Windows::UI::Xaml::Controls::MenuFlyoutSeparator());
+
+	sp->Children->Append
+	(
+		CreateMenuFlyoutButton
+		(
+			app,
+			L"\xE8BB",
+			resourceLoader->GetString("MainPageButtonClose"),
+			ref new RoutedEventHandler
+			(
+				[this](Object^ sender, RoutedEventArgs^ e)
+				{
+					this->app->Exit();
+				}
+			)
+		)
+	);
+	flyout->Content = sp;
+	ButtonHamburger->Flyout = flyout;
 }
 
 void ClipboardManager::MainPage::CreateAddButtonFlyout()
 {
-Flyout^ flyout = ref new Flyout();
-flyout->FlyoutPresenterStyle = ref new Windows::UI::Xaml::Style(TypeName(FlyoutPresenter::typeid));
-flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::PaddingProperty,Thickness(0,0,0,0)));
-flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::BorderBrushProperty, dynamic_cast<Brush^>(app->Resources->Lookup("SystemControlBackgroundAccentBrush"))));
-flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::RequestedThemeProperty, RequestedTheme));
-StackPanel^ sp = ref new StackPanel();
-sp->Orientation = Orientation::Vertical;
-sp->Padding = Thickness(0, 10, 0, 10);
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xE898", 
-resourceLoader->GetString("MainPageButtonMultiloadingText"),
-ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemMultiAdd_Click)
-)
-);
-sp->Children->Append(ref new Windows::UI::Xaml::Controls::MenuFlyoutSeparator());
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xE1A5", 
-resourceLoader->GetString("MainPageButtonAddText"), 
-ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemAddText_Click)
-)
-);
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xE16F", 
-resourceLoader->GetString("MainPageButtonAddFiles"),
-ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemAddFiles_Click)
-)
-);
-sp->Children->Append
-(
-CreateMenuFlyoutButton
-(
-app,
-L"\xEB9F", 
-resourceLoader->GetString("MainPageButtonAddImage"), 
-ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemAddImage_Click)
-)
-);
-flyout->Content = sp;
-ButtonAdd->Flyout = flyout;
+	Flyout^ flyout = ref new Flyout();
+	flyout->FlyoutPresenterStyle = ref new Windows::UI::Xaml::Style(TypeName(FlyoutPresenter::typeid));
+	flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::PaddingProperty, Thickness(0, 0, 0, 0)));
+	flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::BorderBrushProperty, dynamic_cast<Brush^>(app->Resources->Lookup("SystemControlBackgroundAccentBrush"))));
+	flyout->FlyoutPresenterStyle->Setters->Append(ref new Setter(FlyoutPresenter::RequestedThemeProperty, RequestedTheme));
+	StackPanel^ sp = ref new StackPanel();
+	sp->Orientation = Orientation::Vertical;
+	sp->Padding = Thickness(0, 10, 0, 10);
+
+	Button^ multiAddButton = CreateMenuFlyoutButton(app, L"\xE898", resourceLoader->GetString("MainPageButtonMultiloadingText"), nullptr);
+	multiAddButton->Command = MainStaticObject::GoToPageCommand;
+	multiAddButton->CommandParameter = ClipboardManagerPages::MultiloadPage;
+	sp->Children->Append(multiAddButton);
+
+	sp->Children->Append(ref new Windows::UI::Xaml::Controls::MenuFlyoutSeparator());
+
+	sp->Children->Append
+	(
+		CreateMenuFlyoutButton
+		(
+			app,
+			L"\xE1A5",
+			resourceLoader->GetString("MainPageButtonAddText"),
+			ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemAddText_Click)
+		)
+	);
+
+	sp->Children->Append
+	(
+		CreateMenuFlyoutButton
+		(
+			app,
+			L"\xE16F",
+			resourceLoader->GetString("MainPageButtonAddFiles"),
+			ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemAddFiles_Click)
+		)
+	);
+
+	sp->Children->Append
+	(
+		CreateMenuFlyoutButton
+		(
+			app,
+			L"\xEB9F",
+			resourceLoader->GetString("MainPageButtonAddImage"),
+			ref new RoutedEventHandler(this, &ClipboardManager::MainPage::MenuFlyoutItemAddImage_Click)
+		)
+	);
+
+	flyout->Content = sp;
+	ButtonAdd->Flyout = flyout;
 }
 
 void ClipboardManager::MainPage::Page_Loaded(Object^ sender, RoutedEventArgs^ e)
@@ -645,11 +621,6 @@ void ClipboardManager::MainPage::ComboBox_SelectionChanged(Object^ sender, Selec
 
 }
 
-void ClipboardManager::MainPage::ButtonEdit_Click(Object^ sender, RoutedEventArgs^ e)
-{
-Frame->Navigate(TypeName(ClipboardManager::TextEditPage::typeid));
-}
-
 class MainPageWriteTextToHistoryFolderClass
 {
 
@@ -939,16 +910,6 @@ if (type == ClipboardDataType::Image)
 
 }
 
-}
-
-void ClipboardManager::MainPage::ButtonFavorites_Click(Object^ sender, RoutedEventArgs^ e)
-{
-Frame->Navigate(TypeName(ClipboardManager::FavoritesPage::typeid));
-}
-
-void ClipboardManager::MainPage::MenuFlyoutItemMultiAdd_Click(Object^ sender, RoutedEventArgs^ e)
-{
-Frame->Navigate(TypeName(ClipboardManager::MultiloadPage::typeid));
 }
 
 void ClipboardManager::MainPage::MenuFlyoutItemAddText_Click(Object^ sender, RoutedEventArgs^ e)

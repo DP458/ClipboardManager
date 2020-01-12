@@ -90,10 +90,7 @@ private:
 	void ButtonShare_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonClear_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ComboBox_SelectionChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs^ e);
-	void ButtonEdit_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonFavorite_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-	void ButtonFavorites_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-	void MenuFlyoutItemMultiAdd_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void MenuFlyoutItemAddText_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void MenuFlyoutItemAddFiles_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void MenuFlyoutItemAddImage_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);

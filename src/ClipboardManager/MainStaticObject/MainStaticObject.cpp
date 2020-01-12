@@ -3,6 +3,11 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 
 #include "pch.h"
+#include "AboutPage.xaml.h"
+#include "SettingsPage.xaml.h"
+#include "TextEditPage.xaml.h"
+#include "FavoritesPage.xaml.h"
+#include "MultiloadPage.xaml.h"
 
 using namespace ClipboardManager;
 
@@ -12,6 +17,7 @@ using namespace Windows::Foundation;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Input;
+using namespace Windows::UI::Xaml::Interop;
 
 ClipboardManager::MainStaticObject::MainStaticObject() {};
 
@@ -24,6 +30,8 @@ String^ ClipboardManager::MainStaticObject::AppVersionString::get()
 }
 
 #pragma endregion
+
+#pragma region Commands
 
 #pragma region PageBackwardCommand
 
@@ -52,6 +60,57 @@ ICommand^ ClipboardManager::MainStaticObject::PageBackwardCommand::get()
     }
 	return _pageBackwardCommand;
 }
+
+#pragma endregion
+
+#pragma region GoToPageCommand
+
+ICommand^ _goToPageCommand;
+
+void ClipboardManager::MainStaticObject::GoToPage(Object^ parameter)
+{
+    ClipboardManagerPages page = static_cast<ClipboardManagerPages>(parameter);
+    Frame^ rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
+    if (rootFrame == nullptr)
+        return;
+    switch (page)
+    {
+    case ClipboardManagerPages::AboutPage:
+        rootFrame->Navigate(TypeName(ClipboardManager::AboutPage::typeid));
+        break;
+
+    case ClipboardManagerPages::SettingsPage:
+        rootFrame->Navigate(TypeName(ClipboardManager::SettingsPage::typeid));
+        break;
+
+    case ClipboardManagerPages::TextEditPage:
+        rootFrame->Navigate(TypeName(ClipboardManager::TextEditPage::typeid));
+        break;
+
+    case ClipboardManagerPages::FavoritesPage:
+        rootFrame->Navigate(TypeName(ClipboardManager::FavoritesPage::typeid));
+        break;
+
+    case ClipboardManagerPages::MultiloadPage:
+        rootFrame->Navigate(TypeName(ClipboardManager::MultiloadPage::typeid));
+        break;
+    }
+}
+
+ICommand^ ClipboardManager::MainStaticObject::GoToPageCommand::get()
+{
+    if (_goToPageCommand == nullptr)
+    {
+        _goToPageCommand = ref new RelayCommand
+        (
+            ref new ExecuteHandler(GoToPage),
+            ref new CanExecuteHandler([](Object^ parameter)->bool {return true; })
+        );
+    }
+    return _goToPageCommand;
+}
+
+#pragma endregion
 
 #pragma endregion
 
