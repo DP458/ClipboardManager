@@ -3,7 +3,6 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 
 #include "pch.h"
-//#include "MainStaticObject.h"
 
 using namespace ClipboardManager;
 
@@ -28,32 +27,29 @@ String^ ClipboardManager::MainStaticObject::AppVersionString::get()
 
 #pragma region PageBackwardCommand
 
-[Windows::Foundation::Metadata::WebHostHiddenAttribute]
-ref class PageBackwardCommandClass sealed : public ICommand
-{
-public:
-    virtual bool CanExecute(Object^ parameter)
-    {
-        return true;
-    };
-
-    virtual void Execute(Object^ parameter)
-    {
-        Frame^ rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
-        if (rootFrame == nullptr)
-            return;
-        if (rootFrame->CanGoBack)
-            rootFrame->GoBack();
-    };
-    virtual event EventHandler<Object^>^ CanExecuteChanged;
-};
-
 ICommand^ _pageBackwardCommand;
+
+void ClipboardManager::MainStaticObject::GoBackward(Object^ parameter)
+{
+    Frame^ rootFrame = dynamic_cast<Frame^>(Window::Current->Content);
+    if (rootFrame == nullptr)
+        return;
+    if (rootFrame->CanGoBack)
+        rootFrame->GoBack();
+};
 
 ICommand^ ClipboardManager::MainStaticObject::PageBackwardCommand::get()
 {
     if (_pageBackwardCommand == nullptr)
-        _pageBackwardCommand = ref new PageBackwardCommandClass();
+    {
+        StandardUICommand^ command = ref new StandardUICommand(StandardUICommandKind::Backward);
+        command->Command = ref new RelayCommand
+        (
+            ref new ExecuteHandler(GoBackward),
+            ref new CanExecuteHandler([](Object^ parameter)->bool {return true; })
+        );
+        _pageBackwardCommand = command;
+    }
 	return _pageBackwardCommand;
 }
 
