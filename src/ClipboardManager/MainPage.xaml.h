@@ -60,6 +60,22 @@ public:
 
 #pragma endregion
 
+#pragma region Commands
+
+#pragma region SaveCommand
+
+private:
+	Windows::UI::Xaml::Input::ICommand^ _saveCommand;
+	void Save();
+	property Windows::UI::Xaml::Input::ICommand^ SaveCommand
+	{
+		Windows::UI::Xaml::Input::ICommand^ get();
+	}
+
+#pragma endregion
+
+#pragma endregion
+
 public:
 	void SetBottomBarButtonState(bool state);
 
@@ -86,7 +102,6 @@ private:
 	void CreateAddButtonFlyout();
 	void Page_Loaded(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void Page_Unloaded(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-	void ButtonSave_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonShare_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ButtonClear_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	void ComboBox_SelectionChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::SelectionChangedEventArgs^ e);

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    x:Name="MainPage"
     Loaded="Page_Loaded" Unloaded="Page_Unloaded">
 
     <Page.TopAppBar>
@@ -34,7 +35,7 @@
         <CommandBar>
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="ButtonAdd" x:Uid="MainPageButtonAdd" Icon="Add"/>
-                <AppBarButton x:Name="ButtonSave" x:Uid="MainPageButtonSave" Icon="Save" Click="ButtonSave_Click"/>
+                <AppBarButton x:Name="ButtonSave" x:Uid="MainPageButtonSave" Icon="Save"/>
                 <AppBarButton x:Name="ButtonShare" x:Uid="MainPageButtonShare" Icon="ReShare" Click="ButtonShare_Click"/>
                 <AppBarButton x:Name="ButtonClear" x:Uid="MainPageButtonClear" Icon="Clear" Click="ButtonClear_Click"/>
                 <AppBarButton x:Name="ButtonEdit" x:Uid="MainPageButtonEdit" Icon="Edit" Command="{x:Bind local:MainStaticObject.GoToPageCommand}" CommandParameter="{x:Bind local:ClipboardManagerPages.TextEditPage}"/>

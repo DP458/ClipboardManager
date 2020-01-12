@@ -31,7 +31,7 @@ namespace ClipboardManager
 #pragma region PageBackwardCommand
 
 	private:
-		static void GoBackward(Object^ parameter);
+		static void GoBackward(Platform::Object^ parameter);
 
 	public:
 		static property Windows::UI::Xaml::Input::ICommand^ PageBackwardCommand
@@ -44,7 +44,7 @@ namespace ClipboardManager
 #pragma region GoToPageCommand
 
 	private:
-		static void GoToPage(Object^ parameter);
+		static void GoToPage(Platform::Object^ parameter);
 
 	public:
 		static property Windows::UI::Xaml::Input::ICommand^ GoToPageCommand

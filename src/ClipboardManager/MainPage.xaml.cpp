@@ -20,6 +20,7 @@ using namespace Windows::UI::Core;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Interop;
+using namespace Windows::UI::Xaml::Input;
 using namespace Windows::UI::Xaml::Media;
 using namespace Windows::UI::Xaml::Media::Imaging;
 using namespace Windows::UI::Xaml::Navigation;
@@ -30,7 +31,31 @@ using namespace Windows::Storage;
 using namespace Windows::Storage::Streams;
 using namespace Windows::Storage::Pickers;
 
-// Public
+ClipboardManager::MainPage::MainPage()
+{
+	InitializeComponent();
+
+	ButtonSave->Command = SaveCommand;
+
+	app = Application::Current;
+	appData = ApplicationData::Current;
+	historyFolder = nullptr;
+	localSettings = appData->LocalSettings;
+
+	if (static_cast<bool>(localSettings->Values->Lookup("DarkTheme")))
+		RequestedTheme = ElementTheme::Dark;
+
+	Scroller->FontSize = static_cast<int>(localSettings->Values->Lookup("FontSize"));
+	IsConfirmClearEnabled = static_cast<bool>(localSettings->Values->Lookup("ConfirmClear"));
+	resourceLoader = ResourceLoader::GetForViewIndependentUse();
+	dataTransferManager = DataTransferManager::GetForCurrentView();
+	dataTransferManager->DataRequested += ref new TypedEventHandler<DataTransferManager^, DataRequestedEventArgs^>(this, &ClipboardManager::MainPage::OnDataRequested);
+
+	IsClipboardChanged = true;
+	IsBackPage = false;
+	clipboardDataType = ClipboardDataType::Nothing;
+	data = nullptr;
+}
 
 #pragma region Properties
 
@@ -82,41 +107,44 @@ void ClipboardManager::MainPage::IsClipboardChanged::set(bool value)
 
 #pragma endregion
 
-ClipboardManager::MainPage::MainPage()
+#pragma region Commands
+
+#pragma region SaveCommand
+
+void ClipboardManager::MainPage::Save()
 {
-
-InitializeComponent();
-
-app = Application::Current;
-appData = ApplicationData::Current;
-historyFolder = nullptr;
-localSettings = appData->LocalSettings;
-
-if (static_cast<bool>(localSettings->Values->Lookup("DarkTheme")))
-	RequestedTheme = ElementTheme::Dark;
-
-Scroller->FontSize = static_cast<int>(localSettings->Values->Lookup("FontSize"));
-IsConfirmClearEnabled = static_cast<bool>(localSettings->Values->Lookup("ConfirmClear"));
-resourceLoader = ResourceLoader::GetForViewIndependentUse();
-dataTransferManager = DataTransferManager::GetForCurrentView();
-dataTransferManager->DataRequested += ref new TypedEventHandler<DataTransferManager ^, DataRequestedEventArgs ^>(this, &ClipboardManager::MainPage::OnDataRequested);
-
-IsClipboardChanged = true;
-IsBackPage = false;
-clipboardDataType=ClipboardDataType::Nothing;
-data=nullptr;
-
+	Waiter->IsActive = true;
+	const ClipboardDataType type = clipboardDataType;
+	Platform::Object^ obj = data;
+	create_task(CreateFileSavePicker(type)->PickSaveFileAsync()).then(MainPagePickSaveFileClass(this, type, obj));
 }
+
+ICommand^ ClipboardManager::MainPage::SaveCommand::get()
+{
+	if (_saveCommand == nullptr)
+	{
+		StandardUICommand^ command = ref new StandardUICommand(StandardUICommandKind::Save);
+		command->Command = ref new RelayCommand
+		(
+			ref new ExecuteHandler([this](Object^ parameter)->void {Save(); }),
+			ref new CanExecuteHandler([](Object^ parameter)->bool {return true; })
+		);
+		_saveCommand = command;
+	}
+	return _saveCommand;
+}
+
+#pragma endregion
+
+#pragma endregion
 
 void ClipboardManager::MainPage::SetBottomBarButtonState(bool state)
 {
-
-ButtonSave->IsEnabled = state;
-ButtonShare->IsEnabled = state;
-ButtonEdit->IsEnabled = state;
-ButtonClear->IsEnabled = state;
-ButtonFavorite->IsEnabled = state;
-
+	ButtonSave->IsEnabled = state;
+	ButtonShare->IsEnabled = state;
+	ButtonEdit->IsEnabled = state;
+	ButtonClear->IsEnabled = state;
+	ButtonFavorite->IsEnabled = state;
 }
 
 // Protected
@@ -281,57 +309,44 @@ void ClipboardManager::MainPage::CreateAddButtonFlyout()
 
 void ClipboardManager::MainPage::Page_Loaded(Object^ sender, RoutedEventArgs^ e)
 {
-CreateHamburgerButtonFlyout();
-CreateAddButtonFlyout();
-if (IsConfirmClearEnabled)
-{
-ButtonClear->Flyout=CreateConfirmFlyout
-(
-RequestedTheme,
-resourceLoader->GetString("MainPageFlyoutClearClipboardMessage"),
-resourceLoader->GetString("MainPageFlyoutClearClipboardButton"),
-ref new FlyoutButtonClick
-(
-[this]()
-{
-if (!ClearClipboard())
-	ShowError("Failed to clear the clipboard", "", localSettings->Values);
-}
-)
-);
-}
-if (IsBackPage)
-{
-IsActive = true;
-OnContentChanged(nullptr, nullptr);
-IsBackPage = false;
-}
-windowActivatedEventHandler = Window::Current->Activated += ref new WindowActivatedEventHandler(this, &ClipboardManager::MainPage::OnActivated);
-clipboardContentChangedEventHandler = Clipboard::ContentChanged += ref new EventHandler<Object^>(this, &ClipboardManager::MainPage::OnContentChanged);
+	CreateHamburgerButtonFlyout();
+	CreateAddButtonFlyout();
+	if (IsConfirmClearEnabled)
+	{
+		ButtonClear->Flyout = CreateConfirmFlyout
+		(
+			RequestedTheme,
+			resourceLoader->GetString("MainPageFlyoutClearClipboardMessage"),
+			resourceLoader->GetString("MainPageFlyoutClearClipboardButton"),
+			ref new FlyoutButtonClick
+			(
+				[this]()
+				{
+					if (!ClearClipboard())
+						ShowError("Failed to clear the clipboard", "", localSettings->Values);
+				}
+			)
+		);
+	}
+	if (IsBackPage)
+	{
+		IsActive = true;
+		OnContentChanged(nullptr, nullptr);
+		IsBackPage = false;
+	}
+	windowActivatedEventHandler = Window::Current->Activated += ref new WindowActivatedEventHandler(this, &ClipboardManager::MainPage::OnActivated);
+	clipboardContentChangedEventHandler = Clipboard::ContentChanged += ref new EventHandler<Object^>(this, &ClipboardManager::MainPage::OnContentChanged);
 }
 
 void ClipboardManager::MainPage::Page_Unloaded(Object^ sender, RoutedEventArgs^ e)
 {
-Clipboard::ContentChanged -= clipboardContentChangedEventHandler;
-Window::Current->Activated -= windowActivatedEventHandler;
-}
-
-void ClipboardManager::MainPage::ButtonSave_Click(Object^ sender, RoutedEventArgs^ e)
-{
-
-Waiter->IsActive = true;
-
-const ClipboardDataType type = clipboardDataType;
-
-Platform::Object^ obj = data;
-
-create_task(CreateFileSavePicker(type)->PickSaveFileAsync()).then(MainPagePickSaveFileClass(this, type, obj));
-
+	Clipboard::ContentChanged -= clipboardContentChangedEventHandler;
+	Window::Current->Activated -= windowActivatedEventHandler;
 }
 
 void ClipboardManager::MainPage::ButtonShare_Click(Object^ sender, RoutedEventArgs^ e)
 {
-dataTransferManager->ShowShareUI();
+	dataTransferManager->ShowShareUI();
 }
 
 void ClipboardManager::MainPage::ButtonClear_Click(Object^ sender, RoutedEventArgs^ e)
