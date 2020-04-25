@@ -359,7 +359,4 @@
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClipboardManager_TemporaryKey.pfx" />
-  </ItemGroup>
 </Project>
