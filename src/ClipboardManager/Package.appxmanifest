@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="57947PustinnikovDmitriy.ClipboardManager" Publisher="CN=C650B1CD-2352-406E-BDC4-5E192E42D074" Version="11.8.0.0" />
+  <Identity Name="57947PustinnikovDmitriy.ClipboardManager" Publisher="CN=DP458" Version="11.8.0.0" />
   <mp:PhoneIdentity PhoneProductId="b453d827-5fe7-4cc8-8b1e-e9925309cc68" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Clipboard Manager</DisplayName>
